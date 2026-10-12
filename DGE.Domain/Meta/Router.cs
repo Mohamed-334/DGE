@@ -270,5 +270,31 @@
             public const string HardDelete = Prefix + "HardDelete/{id}";
             public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
         }
+        public static class CertificationRouting
+        {
+            public const string Prefix = Root + "Certification/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ExhibitionRouting
+        {
+            public const string Prefix = Root + "Exhibition/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
     }
 }

@@ -33,6 +33,8 @@ namespace DGE.Infrastructure.Context
         public DbSet<PackingType> PackingTypes { get; set; }
         public DbSet<ProductPacking> ProductPackings { get; set; }
         public DbSet<ProductHarvestMonth> ProductHarvestMonths { get; set; }
+        public DbSet<Certification> Certifications { get; set; }
+        public DbSet<Exhibition> Exhibitions { get; set; }
         public DbSet<Logger> Logger { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

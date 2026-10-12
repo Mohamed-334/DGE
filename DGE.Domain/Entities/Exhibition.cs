@@ -2,7 +2,7 @@
 
 namespace DGE.Domain.Entities
 {
-    public class Exhibitions : BaseEntityWithName
+    public class Exhibition : BaseEntityWithName
     {
         public string? ExhibitionUrl { get; set; }
         public string? Description { get; set; }

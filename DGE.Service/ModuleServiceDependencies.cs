@@ -37,6 +37,8 @@ namespace DGE.Service
             services.AddScoped<IPackingTypeService, PackingTypeService>();
             services.AddScoped<IProductPackingService, ProductPackingService>();
             services.AddScoped<IProductHarvestMonthService, ProductHarvestMonthService>();
+            services.AddScoped<ICertificationService, CertificationService>();
+            services.AddScoped<IExhibitionService, ExhibitionService>();
             return services;
         }
     }
