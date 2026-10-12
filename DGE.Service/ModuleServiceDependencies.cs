@@ -24,6 +24,19 @@ namespace DGE.Service
             services.AddScoped<IPermissionService, PermissionService>();
             services.AddScoped<IRolePermissionService, RolePermissionService>();
             services.AddScoped<IUserPermissionService, UserPermissionService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductCategoryService, ProductCategoryService>();
+            services.AddScoped<IProductImageService, ProductImageService>();
+            services.AddScoped<IProductMineralService, ProductMineralService>();
+            services.AddScoped<IProductTypeService, ProductTypeService>();
+            services.AddScoped<IProductVarietyService, ProductVarietyService>();
+            services.AddScoped<IProductVitaminService, ProductVitaminService>();
+            services.AddScoped<IVitaminService, VitaminService>();
+            services.AddScoped<IMineralService, MineralService>();
+            services.AddScoped<ITypeService, TypeService>();
+            services.AddScoped<IPackingTypeService, PackingTypeService>();
+            services.AddScoped<IProductPackingService, ProductPackingService>();
+            services.AddScoped<IProductHarvestMonthService, ProductHarvestMonthService>();
             return services;
         }
     }

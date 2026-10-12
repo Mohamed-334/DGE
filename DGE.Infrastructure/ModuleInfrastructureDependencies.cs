@@ -20,6 +20,19 @@ namespace DGE.Infrastructure
             Services.AddScoped(typeof(IPermissionRepository), typeof(PermissionRepository));
             Services.AddScoped(typeof(IRolePermissionRepository), typeof(RolePermissionRepository));
             Services.AddScoped(typeof(IUserPermissionRepository), typeof(UserPermissionRepository));
+            Services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
+            Services.AddScoped(typeof(IProductCategoryRepository), typeof(ProductCategoryRepository));
+            Services.AddScoped(typeof(IProductImageRepository), typeof(ProductImageRepository));
+            Services.AddScoped(typeof(IProductMineralRepository), typeof(ProductMineralRepository));
+            Services.AddScoped(typeof(IProductTypeRepository), typeof(ProductTypeRepository));
+            Services.AddScoped(typeof(IProductVarietyRepository), typeof(ProductVarietyRepository));
+            Services.AddScoped(typeof(IProductVitaminRepository), typeof(ProductVitaminRepository));
+            Services.AddScoped(typeof(IVitaminRepository), typeof(VitaminRepository));
+            Services.AddScoped(typeof(IMineralRepository), typeof(MineralRepository));
+            Services.AddScoped(typeof(ITypeRepository), typeof(TypeRepository));
+            Services.AddScoped(typeof(IPackingTypeRepository), typeof(PackingTypeRepository));
+            Services.AddScoped(typeof(IProductPackingRepository), typeof(ProductPackingRepository));
+            Services.AddScoped(typeof(IProductHarvestMonthRepository), typeof(ProductHarvestMonthRepository));
             Services.AddScoped<LoggerSaveChangesInterceptor>();
             return Services;
         }

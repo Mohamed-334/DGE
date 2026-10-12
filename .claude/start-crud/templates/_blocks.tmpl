@@ -1,0 +1,5 @@
+# Project overrides for start-crud blocks (same format as the built-in _blocks.tmpl).
+
+### FileUpload
+            if (request.{{Prop}}File != null)
+                {{Target}}.{{Prop}} = await _fileService.{{UploadMethod}}("{{Folder}}", request.{{Prop}}File, FileCategoryEnum.Image);

@@ -1,0 +1,83 @@
+{{SystemUsings}}
+using {{NsOf_Entities}};
+{{#HasStatus}}
+using {{NsOf_DropDown}};
+{{StatusUsings}}
+{{/HasStatus}}
+using {{Ns_repositoryInterface}};
+using {{NsOf_AppLocalization}};
+using {{Ns_serviceInterface}};
+using {{NsOf_BaseService}};
+{{#HasFilters}}
+using {{NsOf_WhereIf}};
+{{/HasFilters}}
+using {{NsOf_Paginated}};
+using {{NsOf_PaginatedList}};
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+{{EntityAliasUsing}}
+
+namespace {{Ns_service}}
+{
+    public class {{Cls_service}} : BaseService<{{EntityRef}}>, {{Cls_serviceInterface}}
+    {
+        #region Fields
+        private readonly {{Cls_repositoryInterface}} _{{entity}}Repository;
+        #endregion
+
+        #region Constructor
+        public {{Cls_service}}(IStringLocalizer<AppLocalization> stringLocalizer, {{Cls_repositoryInterface}} {{entity}}Repository, ILogger<BaseService<{{EntityRef}}>> logger)
+            : base({{ServiceBaseArgs}})
+        {
+            _{{entity}}Repository = {{entity}}Repository;
+        }
+        #endregion
+
+        #region Methods
+        public async Task<PaginatedList<{{EntityRef}}>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10{{ServiceFilterParams}})
+        {
+            var Queryable = _{{entity}}Repository.{{Repo_NoTracking}}()
+{{ServiceIncludes}}
+{{ServiceWhereIfs}}
+                            .AsQueryable();
+
+            var PaginatedList = await Queryable
+                .ToPaginatedListAsync(pageNumber, pageSize);
+            return PaginatedList;
+        }
+{{#HasNavs}}
+
+        public async Task<{{EntityRef}}?> GetByIdWithIncludesAsync(int id)
+        {
+            return await _{{entity}}Repository.{{Repo_NoTracking}}()
+{{ServiceIncludes}}
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<List<{{EntityRef}}>> GetAllWithIncludesAsync()
+        {
+            return await _{{entity}}Repository.{{Repo_NoTracking}}()
+{{ServiceIncludes}}
+                            .ToListAsync();
+        }
+{{/HasNavs}}
+{{#HasStatus}}
+
+        public Task<List<DropDown>> Get{{StatusProp}}DropDownAsync()
+        {
+            var dropdown = Enum.GetValues(typeof({{StatusEnum}}))
+                .Cast<{{StatusEnum}}>()
+                .Select(status => new DropDown
+                {
+                    Id = (int)status,
+                    Name = status.SplitEnumName(),
+                    NameLocalization = status.GetDisplayName()
+                })
+                .ToList();
+            return Task.FromResult(dropdown);
+        }
+{{/HasStatus}}
+        #endregion
+    }
+}

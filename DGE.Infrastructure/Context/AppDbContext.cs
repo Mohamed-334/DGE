@@ -3,6 +3,7 @@ using DGE.Domain.Entities.Logger;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Type = DGE.Domain.Entities.Type;
 
 namespace DGE.Infrastructure.Context
 {
@@ -19,6 +20,19 @@ namespace DGE.Infrastructure.Context
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<RolePermission> RolePermissions { get; set; }
         public DbSet<UserPermission> UserPermissions { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<ProductMineral> ProductMinerals { get; set; }
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<ProductVariety> ProductVarieties { get; set; }
+        public DbSet<ProductVitamin> ProductVitamins { get; set; }
+        public DbSet<Vitamin> Vitamins { get; set; }
+        public DbSet<Mineral> Minerals { get; set; }
+        public DbSet<Type> Types { get; set; }
+        public DbSet<PackingType> PackingTypes { get; set; }
+        public DbSet<ProductPacking> ProductPackings { get; set; }
+        public DbSet<ProductHarvestMonth> ProductHarvestMonths { get; set; }
         public DbSet<Logger> Logger { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

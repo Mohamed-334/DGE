@@ -101,5 +101,174 @@
             public const string HardDelete = Prefix + "HardDelete/{id}";
             public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
         }
+        public static class ProductRouting
+        {
+            public const string Prefix = Root + "Product/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductCategoryRouting
+        {
+            public const string Prefix = Root + "ProductCategory/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductImageRouting
+        {
+            public const string Prefix = Root + "ProductImage/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductMineralRouting
+        {
+            public const string Prefix = Root + "ProductMineral/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductTypeRouting
+        {
+            public const string Prefix = Root + "ProductType/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductVarietyRouting
+        {
+            public const string Prefix = Root + "ProductVariety/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductVitaminRouting
+        {
+            public const string Prefix = Root + "ProductVitamin/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class VitaminRouting
+        {
+            public const string Prefix = Root + "Vitamin/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class MineralRouting
+        {
+            public const string Prefix = Root + "Mineral/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class TypeRouting
+        {
+            public const string Prefix = Root + "Type/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class PackingTypeRouting
+        {
+            public const string Prefix = Root + "PackingType/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductPackingRouting
+        {
+            public const string Prefix = Root + "ProductPacking/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class ProductHarvestMonthRouting
+        {
+            public const string Prefix = Root + "ProductHarvestMonth/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
     }
 }

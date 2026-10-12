@@ -21,6 +21,33 @@ namespace DGE.Domain.Enums
             Document = 2,
             All = Image | Document
         }
+        public enum Month
+        {
+            [Display(Name = "January")]
+            Jan = 1, 
+            [Display(Name = "February")]
+            Feb,
+            [Display(Name = "March")]
+            Mar, 
+            [Display(Name = "April")]
+            Apr, 
+            [Display(Name = "May")] 
+            May,
+            [Display(Name = "June")]
+            Jun,
+            [Display(Name = "July")]
+            Jul,
+            [Display(Name = "August")]
+            Aug,
+            [Display(Name = "September")]
+            Sep,
+            [Display(Name = "October")]
+            Oct,
+            [Display(Name = "November")]
+            Nov,
+            [Display(Name = "December")]
+            Dec
+        }
         #endregion
 
         #region method
