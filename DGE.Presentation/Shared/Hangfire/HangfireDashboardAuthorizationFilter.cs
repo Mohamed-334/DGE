@@ -1,6 +1,6 @@
 using Hangfire.Dashboard;
 
-namespace BaseArchitecture.Presentation.Shared.Hangfire
+namespace DGE.Presentation.Shared.Hangfire
 {
     public class HangfireDashboardAuthorizationFilter : IDashboardAuthorizationFilter
     {

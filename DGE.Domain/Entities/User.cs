@@ -1,7 +1,7 @@
-﻿using BaseArchitecture.Domain.Shared.BaseEntity.Interfaces;
+﻿using DGE.Domain.Shared.BaseEntity.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System.Globalization;
-namespace BaseArchitecture.Domain.Entities
+namespace DGE.Domain.Entities
 {
     public class User : IdentityUser<int>, IBaseEntityWithName
     {

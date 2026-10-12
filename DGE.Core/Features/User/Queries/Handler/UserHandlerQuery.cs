@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
-using BaseArchitecture.Core.Features.ApplicationUser.DTO;
-using BaseArchitecture.Core.Features.ApplicationUser.Queries.RequestModels;
-using BaseArchitecture.Core.Features.Roles.Dto;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Core.Features.ApplicationUser.DTO;
+using DGE.Core.Features.ApplicationUser.Queries.RequestModels;
+using DGE.Core.Features.Roles.Dto;
+using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.PaginatedList;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.ApplicationUser.Queries.Handler
+namespace DGE.Core.Features.ApplicationUser.Queries.Handler
 {
     public class UserHandlerQuery : ResponseHandler,
                                     IRequestHandler<GetUsersListQueryRequestModel, Response<List<UserFullDataDto>>>,

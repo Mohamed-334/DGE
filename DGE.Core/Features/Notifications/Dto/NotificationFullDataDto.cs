@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Core.Features.Notifications.Dto
+﻿namespace DGE.Core.Features.Notifications.Dto
 {
     public class NotificationFullDataDto
     {

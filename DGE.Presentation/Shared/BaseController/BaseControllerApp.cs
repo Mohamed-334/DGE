@@ -1,10 +1,10 @@
-﻿using BaseArchitecture.Core.Shared.Models;
+﻿using DGE.Core.Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace BaseArchitecture.Presentation.Shared.BaseController
+namespace DGE.Presentation.Shared.BaseController
 {
     public class BaseControllerApp : ControllerBase
     {

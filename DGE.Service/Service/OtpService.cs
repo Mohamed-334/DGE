@@ -1,15 +1,15 @@
-﻿using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.RepositoryInterfaces;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.BaseService;
+﻿using DGE.Domain.Entities;
+using DGE.Infrastructure.RepositoryInterfaces;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.BaseService;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System.Security.Cryptography;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
+using static DGE.Domain.Enums.EnumExtensions;
 
-namespace BaseArchitecture.Service.Service
+namespace DGE.Service.Service
 {
     public class OtpService : BaseService<Otp>, IOtpService
     {

@@ -1,9 +1,9 @@
-﻿using BaseArchitecture.Service.Service;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.Email;
+﻿using DGE.Service.Service;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.Email;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BaseArchitecture.Service
+namespace DGE.Service
 {
     public static class ModuleServiceDependencies
     {

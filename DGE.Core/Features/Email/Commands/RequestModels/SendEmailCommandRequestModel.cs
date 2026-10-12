@@ -1,7 +1,7 @@
-﻿using BaseArchitecture.Core.Shared.Models;
+﻿using DGE.Core.Shared.Models;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.Email.Commands.RequestModels
+namespace DGE.Core.Features.Email.Commands.RequestModels
 {
     public class SendEmailCommandRequestModel : IRequest<Response<string>>
     {

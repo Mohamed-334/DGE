@@ -1,10 +1,10 @@
-﻿using BaseArchitecture.Core.Features.Authentication.Commands.RequestModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Core.Features.Authentication.Commands.RequestModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Authentication.Commands.Validators
+namespace DGE.Core.Features.Authentication.Commands.Validators
 {
     public class SignInCommandValidator : AbstractValidator<SignInCommandRequestModel>
     {

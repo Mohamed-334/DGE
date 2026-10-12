@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Core.Features.Roles.Dto
+﻿namespace DGE.Core.Features.Roles.Dto
 {
     public class UserRolesDto
     {

@@ -1,19 +1,19 @@
-﻿using BaseArchitecture.Core;
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Domain.Shared.EmailModels;
-using BaseArchitecture.Domain.Shared.JwtModels;
-using BaseArchitecture.Infrastructure;
-using BaseArchitecture.Infrastructure.Context;
-using BaseArchitecture.Infrastructure.Context.Interceptors;
-using BaseArchitecture.Infrastructure.Hubs;
-using BaseArchitecture.Infrastructure.Seeder;
-using BaseArchitecture.Presentation.Shared.Csrf;
-using BaseArchitecture.Presentation.Shared.ExceptionHandling;
-using BaseArchitecture.Presentation.Shared.Hangfire;
-using BaseArchitecture.Presentation.Shared.HealthChecks;
-using BaseArchitecture.Presentation.Shared.RateLimiting;
-using BaseArchitecture.Service;
-using BaseArchitecture.Service.Shared.Security;
+﻿using DGE.Core;
+using DGE.Domain.Entities;
+using DGE.Domain.Shared.EmailModels;
+using DGE.Domain.Shared.JwtModels;
+using DGE.Infrastructure;
+using DGE.Infrastructure.Context;
+using DGE.Infrastructure.Context.Interceptors;
+using DGE.Infrastructure.Hubs;
+using DGE.Infrastructure.Seeder;
+using DGE.Presentation.Shared.Csrf;
+using DGE.Presentation.Shared.ExceptionHandling;
+using DGE.Presentation.Shared.Hangfire;
+using DGE.Presentation.Shared.HealthChecks;
+using DGE.Presentation.Shared.RateLimiting;
+using DGE.Service;
+using DGE.Service.Shared.Security;
 using Asp.Versioning;
 using Hangfire;
 using Microsoft.AspNetCore.Authentication;
@@ -36,7 +36,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 
-namespace BaseArchitecture.Presentation
+namespace DGE.Presentation
 {
     public class Program
     {
@@ -117,7 +117,7 @@ namespace BaseArchitecture.Presentation
             builder.Services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 var interceptor = sp.GetRequiredService<LoggerSaveChangesInterceptor>();
-                options.UseSqlServer(builder.Configuration.GetConnectionString("BaseArchitecture"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DGE"));
                 options.AddInterceptors(interceptor);
             });
 
@@ -347,7 +347,7 @@ namespace BaseArchitecture.Presentation
             #region Hangfire Services
             builder.Services.AddHangfire(config =>
             {
-                config.UseSqlServerStorage(builder.Configuration.GetConnectionString("BaseArchitecture"));
+                config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DGE"));
             });
             builder.Services.AddHangfireServer();
 

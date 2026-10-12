@@ -1,9 +1,9 @@
 using Asp.Versioning;
-using BaseArchitecture.Core.Features.Notifications.Commands.RequestModels;
-using BaseArchitecture.Core.Features.Notifications.Queries.RequestModels;
-using BaseArchitecture.Domain.Meta;
-using BaseArchitecture.Presentation.Shared.BaseController;
-using BaseArchitecture.Presentation.Shared.RateLimiting;
+using DGE.Core.Features.Notifications.Commands.RequestModels;
+using DGE.Core.Features.Notifications.Queries.RequestModels;
+using DGE.Domain.Meta;
+using DGE.Presentation.Shared.BaseController;
+using DGE.Presentation.Shared.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Mvc;
 

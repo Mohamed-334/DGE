@@ -1,7 +1,7 @@
-using BaseArchitecture.Infrastructure.Shared.Localization;
+using DGE.Infrastructure.Shared.Localization;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Tests.TestDoubles
+namespace DGE.Tests.TestDoubles
 {
     public class KeyEchoLocalizer : IStringLocalizer<AppLocalization>
     {

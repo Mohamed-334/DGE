@@ -1,11 +1,11 @@
-﻿using BaseArchitecture.Domain.Shared.BaseEntity.Implementations;
-using BaseArchitecture.Infrastructure.Context;
-using BaseArchitecture.Infrastructure.Shared.Interfaces;
+﻿using DGE.Domain.Shared.BaseEntity.Implementations;
+using DGE.Infrastructure.Context;
+using DGE.Infrastructure.Shared.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Linq.Expressions;
 
-namespace BaseArchitecture.Infrastructure.Shared.BaseRepository
+namespace DGE.Infrastructure.Shared.BaseRepository
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {

@@ -1,6 +1,6 @@
 using AutoMapper;
 
-namespace BaseArchitecture.Core.Mapping.UserPermissionMapping
+namespace DGE.Core.Mapping.UserPermissionMapping
 {
     public partial class UserPermissionMapping : Profile
     {

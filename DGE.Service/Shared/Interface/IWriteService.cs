@@ -1,4 +1,4 @@
-namespace BaseArchitecture.Service.Shared.Interface
+namespace DGE.Service.Shared.Interface
 {
     public interface IWriteService<TEntity> where TEntity : class
     {

@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Domain.Shared.BaseEntity.Interfaces
+﻿namespace DGE.Domain.Shared.BaseEntity.Interfaces
 {
     public interface IBaseEntity
     {

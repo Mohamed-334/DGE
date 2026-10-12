@@ -1,10 +1,10 @@
-using BaseArchitecture.Service.Shared.ExtensionMethods;
+using DGE.Service.Shared.ExtensionMethods;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Data.Common;
 
-namespace BaseArchitecture.Tests.Pagination
+namespace DGE.Tests.Pagination
 {
     public class PaginatedListExtensionTests : IDisposable
     {

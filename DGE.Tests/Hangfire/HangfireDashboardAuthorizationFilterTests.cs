@@ -1,4 +1,4 @@
-using BaseArchitecture.Presentation.Shared.Hangfire;
+using DGE.Presentation.Shared.Hangfire;
 using Hangfire;
 using Hangfire.Dashboard;
 using Microsoft.AspNetCore.Http;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using System.Security.Claims;
 
-namespace BaseArchitecture.Tests.Hangfire
+namespace DGE.Tests.Hangfire
 {
     public class HangfireDashboardAuthorizationFilterTests
     {

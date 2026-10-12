@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Domain.Entities;
+﻿using DGE.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace BaseArchitecture.Infrastructure.Seeder
+namespace DGE.Infrastructure.Seeder
 {
     public static class UserSeeder
     {

@@ -1,7 +1,7 @@
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Service.Shared.Interface;
+using DGE.Domain.Entities;
+using DGE.Service.Shared.Interface;
 
-namespace BaseArchitecture.Service.ServiceInterfaces
+namespace DGE.Service.ServiceInterfaces
 {
     public interface IUserPermissionService : IBaseService<UserPermission>
     {

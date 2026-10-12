@@ -1,7 +1,7 @@
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Service.Shared.PaginatedList;
 using System.Linq.Expressions;
 
-namespace BaseArchitecture.Service.Shared.Interface
+namespace DGE.Service.Shared.Interface
 {
     public interface IReadService<TEntity> where TEntity : class
     {

@@ -1,4 +1,4 @@
-namespace BaseArchitecture.Core.Features.Permissions.Dto
+namespace DGE.Core.Features.Permissions.Dto
 {
     public class PermissionFullDataDto
     {

@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaseArchitecture.Presentation\BaseArchitecture.Presentation.csproj" />
+    <ProjectReference Include="..\DGE.Presentation\DGE.Presentation.csproj" />
   </ItemGroup>
 
 </Project>

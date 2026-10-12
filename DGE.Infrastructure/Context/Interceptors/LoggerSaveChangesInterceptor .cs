@@ -1,4 +1,4 @@
-﻿using BaseArchitecture.Domain.Entities.Logger;
+﻿using DGE.Domain.Entities.Logger;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Newtonsoft.Json;
 using System.Security.Claims;
 
-namespace BaseArchitecture.Infrastructure.Context.Interceptors
+namespace DGE.Infrastructure.Context.Interceptors
 {
     public class LoggerSaveChangesInterceptor : SaveChangesInterceptor
     {

@@ -1,6 +1,6 @@
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Presentation.Shared.ExceptionHandling;
-using BaseArchitecture.Tests.TestDoubles;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Presentation.Shared.ExceptionHandling;
+using DGE.Tests.TestDoubles;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
 using System.Text.Json;
 
-namespace BaseArchitecture.Tests.ExceptionHandling
+namespace DGE.Tests.ExceptionHandling
 {
     public class GlobalExceptionHandlerTests
     {

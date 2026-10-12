@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Features.Roles.Dto;
-using BaseArchitecture.Core.Mapping.Shared;
-using BaseArchitecture.Domain.Entities;
+﻿using DGE.Core.Features.Roles.Dto;
+using DGE.Core.Mapping.Shared;
+using DGE.Domain.Entities;
 
-namespace BaseArchitecture.Core.Mapping.RoleMapping
+namespace DGE.Core.Mapping.RoleMapping
 {
     public partial class RoleMapping
     {

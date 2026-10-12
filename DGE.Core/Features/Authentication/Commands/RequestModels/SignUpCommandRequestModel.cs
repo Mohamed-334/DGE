@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Shared.Models;
+﻿using DGE.Core.Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace BaseArchitecture.Core.Features.Authentication.Commands.RequestModels
+namespace DGE.Core.Features.Authentication.Commands.RequestModels
 {
     public class SignUpCommandRequestModel : IRequest<Response<string>>
     {

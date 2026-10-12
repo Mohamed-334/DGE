@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Service.Shared.PaginatedList
+﻿namespace DGE.Service.Shared.PaginatedList
 {
     public class PaginatedList<T>
     {

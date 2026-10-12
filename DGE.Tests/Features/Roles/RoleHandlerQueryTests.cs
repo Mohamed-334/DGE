@@ -1,16 +1,16 @@
 using AutoMapper;
-using BaseArchitecture.Core.Features.Roles.Dto;
-using BaseArchitecture.Core.Features.Roles.Queries.Handler;
-using BaseArchitecture.Core.Features.Roles.Queries.RequestModels;
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.PaginatedList;
-using BaseArchitecture.Tests.TestDoubles;
+using DGE.Core.Features.Roles.Dto;
+using DGE.Core.Features.Roles.Queries.Handler;
+using DGE.Core.Features.Roles.Queries.RequestModels;
+using DGE.Domain.Entities;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.PaginatedList;
+using DGE.Tests.TestDoubles;
 using Moq;
 using System.Net;
 
-namespace BaseArchitecture.Tests.Features.Roles
+namespace DGE.Tests.Features.Roles
 {
     public class RoleHandlerQueryTests
     {

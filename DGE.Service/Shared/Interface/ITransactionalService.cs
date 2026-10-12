@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace BaseArchitecture.Service.Shared.Interface
+namespace DGE.Service.Shared.Interface
 {
     public interface ITransactionalService
     {

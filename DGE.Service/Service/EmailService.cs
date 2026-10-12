@@ -1,12 +1,12 @@
-﻿using BaseArchitecture.Domain.Shared.EmailModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.Email;
+﻿using DGE.Domain.Shared.EmailModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.Email;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using MimeKit;
 
-namespace BaseArchitecture.Service.Service
+namespace DGE.Service.Service
 {
     public class EmailService : IEmailService
     {

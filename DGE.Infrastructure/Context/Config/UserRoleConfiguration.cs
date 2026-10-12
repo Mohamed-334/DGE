@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Domain.Entities;
+﻿using DGE.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BaseArchitecture.Infrastructure.Context.Config
+namespace DGE.Infrastructure.Context.Config
 {
     public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
     {

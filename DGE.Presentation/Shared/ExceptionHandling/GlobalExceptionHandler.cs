@@ -1,5 +1,5 @@
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
+using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
 using FluentValidation;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.Localization;
 using System.Diagnostics;
 using System.Net;
 
-namespace BaseArchitecture.Presentation.Shared.ExceptionHandling
+namespace DGE.Presentation.Shared.ExceptionHandling
 {
     public class GlobalExceptionHandler : IExceptionHandler
     {

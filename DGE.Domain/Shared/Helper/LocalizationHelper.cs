@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaseArchitecture.Domain.Shared.Helper
+namespace DGE.Domain.Shared.Helper
 {
     public static class LocalizationHelper
     {

@@ -1,9 +1,9 @@
-using BaseArchitecture.Domain.Shared.EmailModels;
+using DGE.Domain.Shared.EmailModels;
 using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
 
-namespace BaseArchitecture.Service.Shared.Email
+namespace DGE.Service.Shared.Email
 {
     // Registered as a singleton: keeps one authenticated SMTP connection open and reuses it for every email,
     // instead of paying the TCP + TLS handshake and login on each send

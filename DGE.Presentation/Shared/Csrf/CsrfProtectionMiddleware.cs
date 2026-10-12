@@ -1,12 +1,12 @@
-﻿using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
+﻿using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Localization;
 using System.Net;
 
-namespace BaseArchitecture.Presentation.Shared.Csrf
+namespace DGE.Presentation.Shared.Csrf
 {
     public static class CsrfSettings
     {

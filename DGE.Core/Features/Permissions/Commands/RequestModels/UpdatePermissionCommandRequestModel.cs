@@ -1,7 +1,7 @@
-using BaseArchitecture.Core.Shared.Models;
+using DGE.Core.Shared.Models;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.Permissions.Commands.RequestModels
+namespace DGE.Core.Features.Permissions.Commands.RequestModels
 {
     public class UpdatePermissionCommandRequestModel : BaseModelWithName, IRequest<Response<string>>
     {

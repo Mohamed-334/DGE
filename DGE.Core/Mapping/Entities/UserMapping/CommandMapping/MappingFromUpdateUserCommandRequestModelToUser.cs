@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Features.ApplicationUser.Commands.RequestModels;
-using BaseArchitecture.Core.Mapping.Shared;
-using BaseArchitecture.Domain.Entities;
+﻿using DGE.Core.Features.ApplicationUser.Commands.RequestModels;
+using DGE.Core.Mapping.Shared;
+using DGE.Domain.Entities;
 
-namespace BaseArchitecture.Core.Mapping.UserMapping
+namespace DGE.Core.Mapping.UserMapping
 {
     public partial class UserMapping
     {

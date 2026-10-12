@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace BaseArchitecture.Core.Mapping.RoleMapping
+namespace DGE.Core.Mapping.RoleMapping
 {
     public partial class RoleMapping : Profile
     {

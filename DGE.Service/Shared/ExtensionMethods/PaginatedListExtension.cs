@@ -1,7 +1,7 @@
-﻿using BaseArchitecture.Service.Shared.PaginatedList;
+﻿using DGE.Service.Shared.PaginatedList;
 using Microsoft.EntityFrameworkCore;
 
-namespace BaseArchitecture.Service.Shared.ExtensionMethods
+namespace DGE.Service.Shared.ExtensionMethods
 {
     public static class PaginatedListExtension
     {

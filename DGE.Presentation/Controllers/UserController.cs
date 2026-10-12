@@ -1,12 +1,12 @@
 using Asp.Versioning;
-using BaseArchitecture.Core.Features.ApplicationUser.Commands.RequestModels;
-using BaseArchitecture.Core.Features.ApplicationUser.Queries.RequestModels;
-using BaseArchitecture.Domain.Meta;
-using BaseArchitecture.Presentation.Shared.BaseController;
+using DGE.Core.Features.ApplicationUser.Commands.RequestModels;
+using DGE.Core.Features.ApplicationUser.Queries.RequestModels;
+using DGE.Domain.Meta;
+using DGE.Presentation.Shared.BaseController;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BaseArchitecture.Presentation.Controllers
+namespace DGE.Presentation.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]

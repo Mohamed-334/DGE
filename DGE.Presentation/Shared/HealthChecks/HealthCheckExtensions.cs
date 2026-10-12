@@ -1,9 +1,9 @@
-using BaseArchitecture.Infrastructure.Context;
+using DGE.Infrastructure.Context;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace BaseArchitecture.Presentation.Shared.HealthChecks
+namespace DGE.Presentation.Shared.HealthChecks
 {
     public static class HealthCheckTags
     {

@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Domain.Shared.EmailModels
+﻿namespace DGE.Domain.Shared.EmailModels
 {
     public class EmailSettings
     {

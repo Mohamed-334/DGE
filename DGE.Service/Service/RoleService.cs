@@ -1,14 +1,14 @@
-﻿using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.ExtensionMethods;
-using BaseArchitecture.Service.Shared.PaginatedList;
+﻿using DGE.Domain.Entities;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.ExtensionMethods;
+using DGE.Service.Shared.PaginatedList;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using System.Data;
 
-namespace BaseArchitecture.Service.Service
+namespace DGE.Service.Service
 {
     public class RoleService : IRoleService
     {

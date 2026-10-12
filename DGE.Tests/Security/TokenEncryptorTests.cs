@@ -1,7 +1,7 @@
-using BaseArchitecture.Service.Shared.Security;
+using DGE.Service.Shared.Security;
 using System.Security.Cryptography;
 
-namespace BaseArchitecture.Tests.Security
+namespace DGE.Tests.Security
 {
     public class TokenEncryptorTests
     {

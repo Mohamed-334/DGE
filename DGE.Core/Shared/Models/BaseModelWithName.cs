@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Core.Shared.Models
+﻿namespace DGE.Core.Shared.Models
 {
     public class BaseModelWithName
     {

@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Domain.Meta
+﻿namespace DGE.Domain.Meta
 {
     public static class Router
     {

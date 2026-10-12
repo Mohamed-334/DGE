@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Domain.Shared.JwtModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.Security;
+﻿using DGE.Domain.Entities;
+using DGE.Domain.Shared.JwtModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -11,10 +11,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
-using IAuthenticationService = BaseArchitecture.Service.ServiceInterfaces.IAuthenticationService;
+using static DGE.Domain.Enums.EnumExtensions;
+using IAuthenticationService = DGE.Service.ServiceInterfaces.IAuthenticationService;
 
-namespace BaseArchitecture.Service.Service
+namespace DGE.Service.Service
 {
     public class AuthenticationService : IAuthenticationService
     {

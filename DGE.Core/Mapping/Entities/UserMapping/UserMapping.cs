@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace BaseArchitecture.Core.Mapping.UserMapping
+namespace DGE.Core.Mapping.UserMapping
 {
     public partial class UserMapping : Profile
     {

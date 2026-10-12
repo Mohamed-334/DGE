@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Features.Notifications.Dto;
-using BaseArchitecture.Core.Shared.Models;
+﻿using DGE.Core.Features.Notifications.Dto;
+using DGE.Core.Shared.Models;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.Notifications.Queries.RequestModels
+namespace DGE.Core.Features.Notifications.Queries.RequestModels
 {
     public class GetNotificationByIdQueryRequestModel : IRequest<Response<NotificationFullDataDto>>
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
+using static DGE.Domain.Enums.EnumExtensions;
 
-namespace BaseArchitecture.Service.ServiceInterfaces
+namespace DGE.Service.ServiceInterfaces
 {
     public interface IFileService
     {

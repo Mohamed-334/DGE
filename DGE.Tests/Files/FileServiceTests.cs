@@ -1,14 +1,14 @@
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.Service;
-using BaseArchitecture.Tests.TestDoubles;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.Service;
+using DGE.Tests.TestDoubles;
 using FluentValidation;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging.Abstractions;
 using Moq;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
+using static DGE.Domain.Enums.EnumExtensions;
 
-namespace BaseArchitecture.Tests.Files
+namespace DGE.Tests.Files
 {
     public class FileServiceTests : IDisposable
     {

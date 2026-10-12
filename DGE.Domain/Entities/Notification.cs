@@ -1,6 +1,6 @@
-﻿using BaseArchitecture.Domain.Shared.BaseEntity.Implementations;
+﻿using DGE.Domain.Shared.BaseEntity.Implementations;
 
-namespace BaseArchitecture.Domain.Entities
+namespace DGE.Domain.Entities
 {
     public class Notification : BaseEntity
     {

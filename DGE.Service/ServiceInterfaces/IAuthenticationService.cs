@@ -1,11 +1,11 @@
-﻿using BaseArchitecture.Domain.Entities;
+﻿using DGE.Domain.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
+using static DGE.Domain.Enums.EnumExtensions;
 
-namespace BaseArchitecture.Service.ServiceInterfaces
+namespace DGE.Service.ServiceInterfaces
 {
     public interface IAuthenticationService
     {

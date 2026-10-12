@@ -1,12 +1,12 @@
-﻿using BaseArchitecture.Core.Features.ApplicationUser.Commands.RequestModels;
-using BaseArchitecture.Core.Features.Roles.Commands.RequestModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.Service;
-using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Core.Features.ApplicationUser.Commands.RequestModels;
+using DGE.Core.Features.Roles.Commands.RequestModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.Service;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Roles.Commands.Validators
+namespace DGE.Core.Features.Roles.Commands.Validators
 {
     public class DeleteUserCommandValidator : AbstractValidator<DeleteUserCommandRequestQuery>
     {

@@ -19,9 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaseArchitecture.Domain\BaseArchitecture.Domain.csproj" />
-    <ProjectReference Include="..\BaseArchitecture.Infrastructure\BaseArchitecture.Infrastructure.csproj" />
-    <ProjectReference Include="..\BaseArchitecture.Service\BaseArchitecture.Service.csproj" />
+    <ProjectReference Include="..\DGE.Domain\DGE.Domain.csproj" />
+    <ProjectReference Include="..\DGE.Infrastructure\DGE.Infrastructure.csproj" />
+    <ProjectReference Include="..\DGE.Service\DGE.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

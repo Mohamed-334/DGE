@@ -1,9 +1,9 @@
 using Asp.Versioning;
-using BaseArchitecture.Core.Features.Authentication.Commands.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Domain.Meta;
-using BaseArchitecture.Presentation.Shared.BaseController;
-using BaseArchitecture.Presentation.Shared.RateLimiting;
+using DGE.Core.Features.Authentication.Commands.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Domain.Meta;
+using DGE.Presentation.Shared.BaseController;
+using DGE.Presentation.Shared.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace BaseArchitecture.Presentation.Controllers
+namespace DGE.Presentation.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]

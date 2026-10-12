@@ -1,8 +1,8 @@
-using BaseArchitecture.Core.Features.RolePermissions.Commands.RequestModels;
-using BaseArchitecture.Core.Mapping.Shared;
-using BaseArchitecture.Domain.Entities;
+using DGE.Core.Features.RolePermissions.Commands.RequestModels;
+using DGE.Core.Mapping.Shared;
+using DGE.Domain.Entities;
 
-namespace BaseArchitecture.Core.Mapping.RolePermissionMapping
+namespace DGE.Core.Mapping.RolePermissionMapping
 {
     public partial class RolePermissionMapping
     {

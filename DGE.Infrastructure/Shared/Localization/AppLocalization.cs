@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Infrastructure.Shared.Localization
+﻿namespace DGE.Infrastructure.Shared.Localization
 {
     public class AppLocalization
     {

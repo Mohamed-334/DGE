@@ -1,9 +1,9 @@
-using BaseArchitecture.Core.Features.RolePermissions.Dto;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Core.Features.RolePermissions.Dto;
+using DGE.Core.Shared.Models;
+using DGE.Service.Shared.PaginatedList;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.RolePermissions.Queries.RequestModels
+namespace DGE.Core.Features.RolePermissions.Queries.RequestModels
 {
     public class GetRolePermissionsPaginatedListQueryRequestModel : IRequest<Response<PaginatedList<RolePermissionFullDataDto>>>
     {

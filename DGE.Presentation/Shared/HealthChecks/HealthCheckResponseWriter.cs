@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace BaseArchitecture.Presentation.Shared.HealthChecks
+namespace DGE.Presentation.Shared.HealthChecks
 {
     public static class HealthCheckResponseWriter
     {

@@ -1,16 +1,16 @@
-using BaseArchitecture.Domain.Shared.BaseEntity.Implementations;
-using BaseArchitecture.Infrastructure.Shared.Interfaces;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.Shared.ExtensionMethods;
-using BaseArchitecture.Service.Shared.Interface;
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Domain.Shared.BaseEntity.Implementations;
+using DGE.Infrastructure.Shared.Interfaces;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.Shared.ExtensionMethods;
+using DGE.Service.Shared.Interface;
+using DGE.Service.Shared.PaginatedList;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System.Linq.Expressions;
 
-namespace BaseArchitecture.Service.Shared.BaseService
+namespace DGE.Service.Shared.BaseService
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {

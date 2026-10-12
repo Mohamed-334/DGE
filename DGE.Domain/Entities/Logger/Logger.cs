@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Domain.Entities.Logger
+﻿namespace DGE.Domain.Entities.Logger
 {
     public class Logger
     {

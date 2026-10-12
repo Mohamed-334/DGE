@@ -1,4 +1,4 @@
-using BaseArchitecture.Presentation.Shared.HealthChecks;
+using DGE.Presentation.Shared.HealthChecks;
 using Hangfire;
 using Hangfire.Storage;
 using Hangfire.Storage.Monitoring;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Time.Testing;
 using Moq;
 
-namespace BaseArchitecture.Tests.HealthChecks
+namespace DGE.Tests.HealthChecks
 {
     public class HangfireHealthCheckTests
     {

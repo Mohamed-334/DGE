@@ -1,8 +1,8 @@
-using BaseArchitecture.Core.Features.Permissions.Dto;
-using BaseArchitecture.Core.Mapping.Shared;
-using BaseArchitecture.Domain.Entities;
+using DGE.Core.Features.Permissions.Dto;
+using DGE.Core.Mapping.Shared;
+using DGE.Domain.Entities;
 
-namespace BaseArchitecture.Core.Mapping.PermissionMapping
+namespace DGE.Core.Mapping.PermissionMapping
 {
     public partial class PermissionMapping
     {

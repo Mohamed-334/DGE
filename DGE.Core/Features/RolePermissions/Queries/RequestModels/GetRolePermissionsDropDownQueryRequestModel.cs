@@ -1,8 +1,8 @@
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Domain.Shared.BaseEntity.Implementations;
+using DGE.Core.Shared.Models;
+using DGE.Domain.Shared.BaseEntity.Implementations;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.RolePermissions.Queries.RequestModels
+namespace DGE.Core.Features.RolePermissions.Queries.RequestModels
 {
     public class GetRolePermissionsDropDownQueryRequestModel : IRequest<Response<List<DropDown>>>
     {

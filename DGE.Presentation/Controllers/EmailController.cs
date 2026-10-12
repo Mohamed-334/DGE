@@ -1,13 +1,13 @@
 using Asp.Versioning;
-using BaseArchitecture.Core.Features.Email.Commands.RequestModels;
-using BaseArchitecture.Domain.Meta;
-using BaseArchitecture.Presentation.Shared.BaseController;
-using BaseArchitecture.Presentation.Shared.RateLimiting;
+using DGE.Core.Features.Email.Commands.RequestModels;
+using DGE.Domain.Meta;
+using DGE.Presentation.Shared.BaseController;
+using DGE.Presentation.Shared.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BaseArchitecture.Presentation.Controllers
+namespace DGE.Presentation.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]

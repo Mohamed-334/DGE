@@ -1,7 +1,7 @@
-﻿using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Shared.Interfaces;
+﻿using DGE.Domain.Entities;
+using DGE.Infrastructure.Shared.Interfaces;
 
-namespace BaseArchitecture.Infrastructure.RepositoryInterfaces
+namespace DGE.Infrastructure.RepositoryInterfaces
 {
     public interface IOtpRepository : IBaseRepository<Otp>
     {

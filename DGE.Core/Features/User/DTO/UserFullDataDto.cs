@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Core.Features.ApplicationUser.DTO
+﻿namespace DGE.Core.Features.ApplicationUser.DTO
 {
     public class UserFullDataDto
     {

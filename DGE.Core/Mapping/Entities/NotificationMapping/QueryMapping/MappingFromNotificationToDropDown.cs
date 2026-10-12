@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Mapping.Shared;
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Domain.Shared.BaseEntity.Implementations;
+﻿using DGE.Core.Mapping.Shared;
+using DGE.Domain.Entities;
+using DGE.Domain.Shared.BaseEntity.Implementations;
 
-namespace BaseArchitecture.Core.Mapping.NotificationMapping
+namespace DGE.Core.Mapping.NotificationMapping
 {
     public partial class NotificationMapping
     {

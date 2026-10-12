@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Domain.Shared.JwtModels
+﻿namespace DGE.Domain.Shared.JwtModels
 {
     public class JwtSettings
     {

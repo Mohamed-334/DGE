@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace BaseArchitecture.Domain.Enums
+namespace DGE.Domain.Enums
 {
     public static class EnumExtensions
     {

@@ -1,9 +1,9 @@
-﻿using BaseArchitecture.Core.Features.Email.Commands.RequestModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
+﻿using DGE.Core.Features.Email.Commands.RequestModels;
+using DGE.Infrastructure.Shared.Localization;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Email.Commands.Validators
+namespace DGE.Core.Features.Email.Commands.Validators
 {
     internal class SendEmailValidator : AbstractValidator<SendEmailCommandRequestModel>
     {

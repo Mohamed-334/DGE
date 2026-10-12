@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using BaseArchitecture.Core.Features.Roles.Dto;
-using BaseArchitecture.Core.Features.Roles.Queries.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Core.Features.Roles.Dto;
+using DGE.Core.Features.Roles.Queries.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.PaginatedList;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Roles.Queries.Handler
+namespace DGE.Core.Features.Roles.Queries.Handler
 {
     public class RoleHandlerQuery : ResponseHandler,
                                     IRequestHandler<GetRolesListQueryRequestModel, Response<List<RoleFullDataDto>>>,

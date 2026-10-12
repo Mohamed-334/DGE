@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BaseArchitecture.Infrastructure.Migrations
+namespace DGE.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class AddOtpAndUserNotificationIndexes : Migration

@@ -1,13 +1,13 @@
 using AutoMapper;
-using BaseArchitecture.Core.Features.Permissions.Commands.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+using DGE.Core.Features.Permissions.Commands.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Domain.Entities;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Permissions.Commands.Handler
+namespace DGE.Core.Features.Permissions.Commands.Handler
 {
     public class PermissionCommandHandler : ResponseHandler, IRequestHandler<AddPermissionCommandRequestModel, Response<string>>,
                                                          IRequestHandler<UpdatePermissionCommandRequestModel, Response<string>>,

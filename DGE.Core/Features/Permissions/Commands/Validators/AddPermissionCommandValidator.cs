@@ -1,10 +1,10 @@
-using BaseArchitecture.Core.Features.Permissions.Commands.RequestModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+using DGE.Core.Features.Permissions.Commands.RequestModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Permissions.Commands.Validators
+namespace DGE.Core.Features.Permissions.Commands.Validators
 {
     public class AddPermissionCommandValidator : AbstractValidator<AddPermissionCommandRequestModel>
     {

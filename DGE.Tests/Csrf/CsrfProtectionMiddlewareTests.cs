@@ -1,6 +1,6 @@
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Presentation.Shared.Csrf;
-using BaseArchitecture.Tests.TestDoubles;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Presentation.Shared.Csrf;
+using DGE.Tests.TestDoubles;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Moq;
 using System.Text.Json;
 
-namespace BaseArchitecture.Tests.Csrf
+namespace DGE.Tests.Csrf
 {
     public class CsrfProtectionMiddlewareTests
     {

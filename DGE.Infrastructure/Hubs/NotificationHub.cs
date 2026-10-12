@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace BaseArchitecture.Infrastructure.Hubs
+namespace DGE.Infrastructure.Hubs
 {
     //[Authorize]
     public class NotificationHub : Hub

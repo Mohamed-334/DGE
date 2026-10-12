@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using BaseArchitecture.Core.Features.Notifications.Commands.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+using DGE.Core.Features.Notifications.Commands.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Domain.Entities;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Notifications.Commands.Handler
+namespace DGE.Core.Features.Notifications.Commands.Handler
 {
     public class NotificationCommandHandler : ResponseHandler, IRequestHandler<AddNotificationCommandRequestModel, Response<string>>,
                                                          IRequestHandler<SendNotificationCommandRequestModel, Response<string>>,

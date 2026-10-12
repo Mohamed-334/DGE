@@ -1,11 +1,11 @@
-﻿using BaseArchitecture.Core.Features.Email.Commands.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Core.Features.Email.Commands.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Email.Commands.Handlers
+namespace DGE.Core.Features.Email.Commands.Handlers
 {
     public class EmailCommandHandler : ResponseHandler,
         IRequestHandler<SendEmailCommandRequestModel, Response<string>>

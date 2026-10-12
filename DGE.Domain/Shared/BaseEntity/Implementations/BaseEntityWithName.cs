@@ -1,6 +1,6 @@
-﻿using BaseArchitecture.Domain.Shared.BaseEntity.Interfaces;
+﻿using DGE.Domain.Shared.BaseEntity.Interfaces;
 
-namespace BaseArchitecture.Domain.Shared.BaseEntity.Implementations
+namespace DGE.Domain.Shared.BaseEntity.Implementations
 {
     public class BaseEntityWithName : BaseEntity, IBaseEntityWithName
     {

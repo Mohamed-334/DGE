@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Service.ServiceInterfaces
+﻿namespace DGE.Service.ServiceInterfaces
 {
     public interface IEmailService
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace BaseArchitecture.Service.Shared.ExtensionMethods
+namespace DGE.Service.Shared.ExtensionMethods
 {
     public static class QueryExtensions
     {

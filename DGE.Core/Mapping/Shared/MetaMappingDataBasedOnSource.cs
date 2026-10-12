@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using BaseArchitecture.Domain.Shared.BaseEntity.Interfaces;
-using BaseArchitecture.Service.ServiceInterfaces;
+using DGE.Domain.Shared.BaseEntity.Interfaces;
+using DGE.Service.ServiceInterfaces;
 
-namespace BaseArchitecture.Core.Mapping.Shared
+namespace DGE.Core.Mapping.Shared
 {
     public class MetaMappingDataBasedOnSource<TSource, TDestination>
     : IMappingAction<TSource, TDestination>

@@ -1,9 +1,9 @@
-﻿using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Service.Shared.PaginatedList;
+﻿using DGE.Domain.Entities;
+using DGE.Service.Shared.PaginatedList;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
-namespace BaseArchitecture.Service.ServiceInterfaces
+namespace DGE.Service.ServiceInterfaces
 {
     public interface IUserService
     {

@@ -1,7 +1,7 @@
-﻿using BaseArchitecture.Core.Shared.Models;
+﻿using DGE.Core.Shared.Models;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.Notifications.Commands.RequestModels
+namespace DGE.Core.Features.Notifications.Commands.RequestModels
 {
     public class SendNotificationCommandRequestModel : IRequest<Response<string>>
     {

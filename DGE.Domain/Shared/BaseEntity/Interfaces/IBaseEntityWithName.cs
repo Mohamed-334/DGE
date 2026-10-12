@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace BaseArchitecture.Domain.Shared.BaseEntity.Interfaces
+namespace DGE.Domain.Shared.BaseEntity.Interfaces
 {
     public interface IBaseEntityWithName : IBaseEntity
     {

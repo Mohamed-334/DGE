@@ -1,10 +1,10 @@
-﻿using BaseArchitecture.Core.Features.ApplicationUser.Commands.RequestModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Core.Features.ApplicationUser.Commands.RequestModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Roles.Commands.Validators
+namespace DGE.Core.Features.Roles.Commands.Validators
 {
     public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommandRequestQuery>
     {

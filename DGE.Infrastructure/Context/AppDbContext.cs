@@ -1,10 +1,10 @@
-﻿using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Domain.Entities.Logger;
+﻿using DGE.Domain.Entities;
+using DGE.Domain.Entities.Logger;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace BaseArchitecture.Infrastructure.Context
+namespace DGE.Infrastructure.Context
 {
     public class AppDbContext : IdentityDbContext<User, Role, int, IdentityUserClaim<int>, UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {

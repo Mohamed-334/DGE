@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace BaseArchitecture.Service.Shared.Interface
+namespace DGE.Service.Shared.Interface
 {
     public interface IDeleteService<TEntity> where TEntity : class
     {

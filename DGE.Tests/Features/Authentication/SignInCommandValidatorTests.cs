@@ -1,11 +1,11 @@
-using BaseArchitecture.Core.Features.Authentication.Commands.RequestModels;
-using BaseArchitecture.Core.Features.Authentication.Commands.Validators;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Tests.TestDoubles;
+using DGE.Core.Features.Authentication.Commands.RequestModels;
+using DGE.Core.Features.Authentication.Commands.Validators;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Tests.TestDoubles;
 using Moq;
 
-namespace BaseArchitecture.Tests.Features.Authentication
+namespace DGE.Tests.Features.Authentication
 {
     public class SignInCommandValidatorTests
     {

@@ -1,10 +1,10 @@
-﻿using BaseArchitecture.Core.Features.Notifications.Commands.RequestModels;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Core.Features.Notifications.Commands.RequestModels;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Notifications.Commands.Validators
+namespace DGE.Core.Features.Notifications.Commands.Validators
 {
     public class DeleteNotificationCommandValidator : AbstractValidator<DeleteNotificationCommandRequestModel>
     {

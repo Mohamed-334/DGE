@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Infrastructure.Shared.Localization;
+﻿using DGE.Infrastructure.Shared.Localization;
 using Microsoft.Extensions.Localization;
 using System.Net;
 
-namespace BaseArchitecture.Core.Shared.Models
+namespace DGE.Core.Shared.Models
 {
     public class ResponseHandler
     {

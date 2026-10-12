@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Shared.Models;
+﻿using DGE.Core.Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 
-namespace BaseArchitecture.Core.Features.ApplicationUser.Commands.RequestModels
+namespace DGE.Core.Features.ApplicationUser.Commands.RequestModels
 {
     public class UpdateUserCommandRequestQuery : IRequest<Response<string>>
     {

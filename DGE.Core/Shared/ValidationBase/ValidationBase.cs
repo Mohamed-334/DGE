@@ -2,7 +2,7 @@
 using MediatR;
 using ValidationException = FluentValidation.ValidationException;
 
-namespace BaseArchitecture.Core.Shared.ValidationBase
+namespace DGE.Core.Shared.ValidationBase
 {
     public class ValidationBase<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
        where TRequest : IRequest<TResponse>

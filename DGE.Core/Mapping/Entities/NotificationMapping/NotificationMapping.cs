@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace BaseArchitecture.Core.Mapping.NotificationMapping
+namespace DGE.Core.Mapping.NotificationMapping
 {
     public partial class NotificationMapping : Profile
     {

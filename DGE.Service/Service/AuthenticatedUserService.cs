@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Service.ServiceInterfaces;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace BaseArchitecture.Service.Service
+namespace DGE.Service.Service
 {
     public class AuthenticatedUserService : IAuthenticatedUserService
     {

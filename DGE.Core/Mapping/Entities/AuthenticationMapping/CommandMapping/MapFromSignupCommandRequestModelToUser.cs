@@ -1,8 +1,8 @@
-﻿using BaseArchitecture.Core.Features.Authentication.Commands.RequestModels;
-using BaseArchitecture.Core.Mapping.Shared;
-using BaseArchitecture.Domain.Entities;
+﻿using DGE.Core.Features.Authentication.Commands.RequestModels;
+using DGE.Core.Mapping.Shared;
+using DGE.Domain.Entities;
 
-namespace BaseArchitecture.Core.Mapping.AuthenticationMapping
+namespace DGE.Core.Mapping.AuthenticationMapping
 {
     public partial class AuthenticationMapping
     {

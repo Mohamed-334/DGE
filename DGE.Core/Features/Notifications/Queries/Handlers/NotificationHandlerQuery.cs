@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
-using BaseArchitecture.Core.Features.Notifications.Dto;
-using BaseArchitecture.Core.Features.Notifications.Queries.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Domain.Shared.BaseEntity.Implementations;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Core.Features.Notifications.Dto;
+using DGE.Core.Features.Notifications.Queries.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Domain.Shared.BaseEntity.Implementations;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.PaginatedList;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.Notifications.Queries.Handler
+namespace DGE.Core.Features.Notifications.Queries.Handler
 {
     public class NotificationHandlerQuery : ResponseHandler,
                                     IRequestHandler<GetNotificationsListQueryRequestModel, Response<List<NotificationFullDataDto>>>,

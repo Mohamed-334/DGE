@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Azure.Core;
-using BaseArchitecture.Core.Features.Authentication.Commands.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+using DGE.Core.Features.Authentication.Commands.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Domain.Entities;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
@@ -13,10 +13,10 @@ using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 using System.Security.Claims;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
-using IAuthenticationService = BaseArchitecture.Service.ServiceInterfaces.IAuthenticationService;
+using static DGE.Domain.Enums.EnumExtensions;
+using IAuthenticationService = DGE.Service.ServiceInterfaces.IAuthenticationService;
 
-namespace BaseArchitecture.Core.Features.Authentication.Commands.Handlers
+namespace DGE.Core.Features.Authentication.Commands.Handlers
 {
     public class AuthenticationHandlerCommand : ResponseHandler,
                                         IRequestHandler<SignUpCommandRequestModel, Response<string>>,

@@ -1,8 +1,8 @@
-using BaseArchitecture.Core.Features.UserPermissions.Dto;
-using BaseArchitecture.Core.Shared.Models;
+using DGE.Core.Features.UserPermissions.Dto;
+using DGE.Core.Shared.Models;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.UserPermissions.Queries.RequestModels
+namespace DGE.Core.Features.UserPermissions.Queries.RequestModels
 {
     public class GetUserPermissionByIdQueryRequestModel : IRequest<Response<UserPermissionFullDataDto>>
     {

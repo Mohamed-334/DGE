@@ -1,10 +1,10 @@
 ﻿
-using BaseArchitecture.Core.Features.ApplicationUser.DTO;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Service.Shared.PaginatedList;
+using DGE.Core.Features.ApplicationUser.DTO;
+using DGE.Core.Shared.Models;
+using DGE.Service.Shared.PaginatedList;
 using MediatR;
 
-namespace BaseArchitecture.Core.Features.ApplicationUser.Queries.RequestModels
+namespace DGE.Core.Features.ApplicationUser.Queries.RequestModels
 {
     public class GetUsersPaginatedListQueryRequestModel : IRequest<Response<PaginatedList<UserFullDataDto>>>
     {

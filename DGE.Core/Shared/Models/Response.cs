@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BaseArchitecture.Core.Shared.Models
+namespace DGE.Core.Shared.Models
 {
     public class Response<TResult>
     {

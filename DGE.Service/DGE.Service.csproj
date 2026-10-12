@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaseArchitecture.Domain\BaseArchitecture.Domain.csproj" />
-    <ProjectReference Include="..\BaseArchitecture.Infrastructure\BaseArchitecture.Infrastructure.csproj" />
+    <ProjectReference Include="..\DGE.Domain\DGE.Domain.csproj" />
+    <ProjectReference Include="..\DGE.Infrastructure\DGE.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

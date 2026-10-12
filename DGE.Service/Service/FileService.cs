@@ -1,14 +1,14 @@
-﻿using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+﻿using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
-using static BaseArchitecture.Domain.Enums.EnumExtensions;
+using static DGE.Domain.Enums.EnumExtensions;
 
-namespace BaseArchitecture.Service.Service
+namespace DGE.Service.Service
 {
     public class FileService : IFileService
     {

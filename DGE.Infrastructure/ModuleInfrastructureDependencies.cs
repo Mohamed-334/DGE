@@ -1,11 +1,11 @@
-﻿using BaseArchitecture.Infrastructure.Context.Interceptors;
-using BaseArchitecture.Infrastructure.Repository;
-using BaseArchitecture.Infrastructure.RepositoryInterfaces;
-using BaseArchitecture.Infrastructure.Shared.BaseRepository;
-using BaseArchitecture.Infrastructure.Shared.Interfaces;
+﻿using DGE.Infrastructure.Context.Interceptors;
+using DGE.Infrastructure.Repository;
+using DGE.Infrastructure.RepositoryInterfaces;
+using DGE.Infrastructure.Shared.BaseRepository;
+using DGE.Infrastructure.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BaseArchitecture.Infrastructure
+namespace DGE.Infrastructure
 {
     public static class ModuleInfrastructureDependencies
     {

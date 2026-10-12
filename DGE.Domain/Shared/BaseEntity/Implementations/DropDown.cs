@@ -1,4 +1,4 @@
-﻿namespace BaseArchitecture.Domain.Shared.BaseEntity.Implementations
+﻿namespace DGE.Domain.Shared.BaseEntity.Implementations
 {
     public class DropDown
     {

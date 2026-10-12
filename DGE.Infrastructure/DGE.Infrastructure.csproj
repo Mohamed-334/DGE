@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaseArchitecture.Domain\BaseArchitecture.Domain.csproj" />
+    <ProjectReference Include="..\DGE.Domain\DGE.Domain.csproj" />
   </ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Update="Shared\Localization\AppLocalization.Ar.resx">

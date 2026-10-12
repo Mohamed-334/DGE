@@ -1,12 +1,12 @@
-using BaseArchitecture.Domain.Entities;
-using BaseArchitecture.Infrastructure.Context;
-using BaseArchitecture.Infrastructure.RepositoryInterfaces;
-using BaseArchitecture.Infrastructure.Shared.BaseRepository;
-using BaseArchitecture.Infrastructure.Shared.Localization;
+using DGE.Domain.Entities;
+using DGE.Infrastructure.Context;
+using DGE.Infrastructure.RepositoryInterfaces;
+using DGE.Infrastructure.Shared.BaseRepository;
+using DGE.Infrastructure.Shared.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Infrastructure.Repository
+namespace DGE.Infrastructure.Repository
 {
     public class UserPermissionRepository : BaseRepository<UserPermission>, IUserPermissionRepository
     {

@@ -1,5 +1,5 @@
-﻿using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
+﻿using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Localization;
 using System.Globalization;
@@ -7,7 +7,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Threading.RateLimiting;
 
-namespace BaseArchitecture.Presentation.Shared.RateLimiting
+namespace DGE.Presentation.Shared.RateLimiting
 {
     public static class RateLimitPolicies
     {

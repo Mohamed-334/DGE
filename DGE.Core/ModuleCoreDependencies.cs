@@ -1,11 +1,11 @@
-﻿using BaseArchitecture.Core.Shared.ValidationBase;
+﻿using DGE.Core.Shared.ValidationBase;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace BaseArchitecture.Core
+namespace DGE.Core
 {
     public static class ModuleCoreDependencies
     {

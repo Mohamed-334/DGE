@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
-using BaseArchitecture.Core.Features.ApplicationUser.Commands.RequestModels;
-using BaseArchitecture.Core.Shared.Models;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Service.ServiceInterfaces;
+using DGE.Core.Features.ApplicationUser.Commands.RequestModels;
+using DGE.Core.Shared.Models;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Service.ServiceInterfaces;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
 using Microsoft.Extensions.Localization;
 
-namespace BaseArchitecture.Core.Features.ApplicationUser.Commands.Handler
+namespace DGE.Core.Features.ApplicationUser.Commands.Handler
 {
     public class UserHandlerCommand : ResponseHandler,
                                       IRequestHandler<UpdateUserCommandRequestQuery, Response<string>>,

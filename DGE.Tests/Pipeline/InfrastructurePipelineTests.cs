@@ -1,8 +1,8 @@
-using BaseArchitecture.Infrastructure.Context;
-using BaseArchitecture.Infrastructure.Shared.Localization;
-using BaseArchitecture.Presentation.Shared.ExceptionHandling;
-using BaseArchitecture.Presentation.Shared.HealthChecks;
-using BaseArchitecture.Tests.TestDoubles;
+using DGE.Infrastructure.Context;
+using DGE.Infrastructure.Shared.Localization;
+using DGE.Presentation.Shared.ExceptionHandling;
+using DGE.Presentation.Shared.HealthChecks;
+using DGE.Tests.TestDoubles;
 using Hangfire;
 using Hangfire.Storage;
 using Hangfire.Storage.Monitoring;
@@ -18,7 +18,7 @@ using Moq;
 using System.Net;
 using System.Text.Json;
 
-namespace BaseArchitecture.Tests.Pipeline
+namespace DGE.Tests.Pipeline
 {
     public class InfrastructurePipelineTests : IAsyncLifetime
     {

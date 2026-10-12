@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace BaseArchitecture.Service.Shared.Security
+namespace DGE.Service.Shared.Security
 {
     /// <summary>
     /// AES-256-GCM encryption for access tokens.

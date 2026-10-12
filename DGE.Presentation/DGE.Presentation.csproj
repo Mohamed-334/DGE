@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaseArchitecture.Core\BaseArchitecture.Core.csproj" />
+    <ProjectReference Include="..\DGE.Core\DGE.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

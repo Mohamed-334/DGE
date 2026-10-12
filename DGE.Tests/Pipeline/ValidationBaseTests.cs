@@ -1,10 +1,10 @@
-using BaseArchitecture.Core.Shared.ValidationBase;
+using DGE.Core.Shared.ValidationBase;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
 using Moq;
 
-namespace BaseArchitecture.Tests.Pipeline
+namespace DGE.Tests.Pipeline
 {
     public class ValidationBaseTests
     {
