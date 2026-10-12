@@ -43,6 +43,14 @@ namespace DGE.Service.Service
         {
             return await _productRepository.GetTableNoTracking()
                             .Include(p => p.ProductCategory)
+                            .Include(p => p.ProductImages)
+                            .Include(p => p.ProductVarieties)
+                            .Include(p => p.ProductTypes!).ThenInclude(pt => pt.Type)
+                            .Include(p => p.ProductPackings!).ThenInclude(pp => pp.PackingType)
+                            .Include(p => p.ProductVitamins!).ThenInclude(pv => pv.Vitamin)
+                            .Include(p => p.ProductMinerals!).ThenInclude(pm => pm.Mineral)
+                            .Include(p => p.ProductHarvestMonths)
+                            .AsSplitQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 

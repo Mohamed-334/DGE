@@ -36,6 +36,14 @@ namespace DGE.Service.Service
                 .ToPaginatedListAsync(pageNumber, pageSize);
             return PaginatedList;
         }
+
+        public async Task<bool> AllExistAsync(IEnumerable<int> ids)
+        {
+            var idList = ids.Distinct().ToList();
+            var found = await _mineralRepository.GetTableNoTracking()
+                            .CountAsync(x => idList.Contains(x.Id));
+            return found == idList.Count;
+        }
         #endregion
     }
 }
