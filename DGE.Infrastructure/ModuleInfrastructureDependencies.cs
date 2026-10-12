@@ -35,6 +35,7 @@ namespace DGE.Infrastructure
             Services.AddScoped(typeof(IProductHarvestMonthRepository), typeof(ProductHarvestMonthRepository));
             Services.AddScoped(typeof(ICertificationRepository), typeof(CertificationRepository));
             Services.AddScoped(typeof(IExhibitionRepository), typeof(ExhibitionRepository));
+            Services.AddScoped(typeof(IContactUsRepository), typeof(ContactUsRepository));
             Services.AddScoped<LoggerSaveChangesInterceptor>();
             return Services;
         }

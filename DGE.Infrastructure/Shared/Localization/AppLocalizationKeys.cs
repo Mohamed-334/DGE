@@ -60,6 +60,7 @@
         public const string FailedToVerifyOtp = "FailedToVerifyOtp";
         public const string PasswordChanged = "PasswordChanged";
         public const string EmailIsNotExist = "EmailIsNotExist";
+        public const string InvalidEmail = "InvalidEmail";
         public const string FailedToLogout = "FailedToLogout";
         public const string Logout = "Logout";
         public const string FailedToSendNotification = "FailedToSendNotification";

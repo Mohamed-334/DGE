@@ -35,6 +35,7 @@ namespace DGE.Infrastructure.Context
         public DbSet<ProductHarvestMonth> ProductHarvestMonths { get; set; }
         public DbSet<Certification> Certifications { get; set; }
         public DbSet<Exhibition> Exhibitions { get; set; }
+        public DbSet<ContactUs> ContactUsMessages { get; set; }
         public DbSet<Logger> Logger { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

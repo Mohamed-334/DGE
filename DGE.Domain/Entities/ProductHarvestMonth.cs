@@ -7,7 +7,7 @@ namespace DGE.Domain.Entities
     {
         public int? MonthStatusCode { get; set; }
         public string? MonthStatus { get; set; }
-        public string? MonthStatusLocalization { get; set; }
+        public string? MonthStatusDisplayName { get; set; }
 
         [ForeignKey("Product")]
         public int ProductId { get; set; } 

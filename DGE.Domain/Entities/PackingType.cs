@@ -7,4 +7,4 @@ namespace DGE.Domain.Entities
 
         public ICollection<ProductPacking> Products { get; set; } = new List<ProductPacking>();
     }
-}
+        }

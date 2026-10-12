@@ -13,7 +13,7 @@ namespace DGE.Core.Mapping.ProductHarvestMonthMapping
         {
             CreateMap<AddProductHarvestMonthCommandRequestModel, ProductHarvestMonth>()
                 .ForMember(dest => dest.MonthStatus, opt => opt.MapFrom(src => src.MonthStatusCode.HasValue ? ((Month)src.MonthStatusCode).SplitEnumName() : null))
-                .ForMember(dest => dest.MonthStatusLocalization, opt => opt.MapFrom(src => src.MonthStatusCode.HasValue ? ((Month)src.MonthStatusCode).GetDisplayName() : null))
+                .ForMember(dest => dest.MonthStatusDisplayName, opt => opt.MapFrom(src => src.MonthStatusCode.HasValue ? ((Month)src.MonthStatusCode).GetDisplayName() : null))
                 .ForMember(dest => dest.Product, opt => opt.Ignore())
             .AfterMap<MetaMappingDataBasedOnDestination<AddProductHarvestMonthCommandRequestModel, ProductHarvestMonth>>();
         }

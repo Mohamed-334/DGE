@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DGE.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261012143147_Init")]
+    [Migration("20261012144923_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -72,6 +72,52 @@ namespace DGE.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Certifications", (string)null);
+                });
+
+            modelBuilder.Entity("DGE.Domain.Entities.ContactUs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeleterName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifierName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactUsMessages", (string)null);
                 });
 
             modelBuilder.Entity("DGE.Domain.Entities.Exhibition", b =>
@@ -511,7 +557,7 @@ namespace DGE.Infrastructure.Migrations
                     b.Property<int?>("MonthStatusCode")
                         .HasColumnType("int");
 
-                    b.Property<string>("MonthStatusLocalization")
+                    b.Property<string>("MonthStatusDisplayName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")

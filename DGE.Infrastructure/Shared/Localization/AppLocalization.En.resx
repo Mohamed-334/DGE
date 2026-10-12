@@ -156,6 +156,9 @@
   <data name="EmailIsNotExist" xml:space="preserve">
     <value>Email Is Not Exist</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid Email Address</value>
+  </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>Please Confirm Your Email</value>
   </data>

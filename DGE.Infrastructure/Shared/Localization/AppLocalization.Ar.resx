@@ -156,6 +156,9 @@
   <data name="EmailIsNotExist" xml:space="preserve">
     <value>هذا البريد الالكتروني غير متوفر</value>
   </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>البريد الإلكتروني غير صالح</value>
+  </data>
   <data name="EmailNotConfirmed" xml:space="preserve">
     <value>من فضلك قم بتأكيد الايميل</value>
   </data>

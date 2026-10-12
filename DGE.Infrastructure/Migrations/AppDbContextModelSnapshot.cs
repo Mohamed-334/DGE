@@ -71,6 +71,52 @@ namespace DGE.Infrastructure.Migrations
                     b.ToTable("Certifications", (string)null);
                 });
 
+            modelBuilder.Entity("DGE.Domain.Entities.ContactUs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatorName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeleterName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifierName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactUsMessages", (string)null);
+                });
+
             modelBuilder.Entity("DGE.Domain.Entities.Exhibition", b =>
                 {
                     b.Property<int>("Id")
@@ -508,7 +554,7 @@ namespace DGE.Infrastructure.Migrations
                     b.Property<int?>("MonthStatusCode")
                         .HasColumnType("int");
 
-                    b.Property<string>("MonthStatusLocalization")
+                    b.Property<string>("MonthStatusDisplayName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
