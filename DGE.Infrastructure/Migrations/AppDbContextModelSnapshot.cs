@@ -149,6 +149,9 @@ namespace DGE.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModificationDate")
                         .HasColumnType("datetime2");
 
@@ -159,6 +162,9 @@ namespace DGE.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameLocalization")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Year")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

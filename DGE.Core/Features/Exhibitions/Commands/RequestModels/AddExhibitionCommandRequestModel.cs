@@ -11,5 +11,7 @@ namespace DGE.Core.Features.Exhibitions.Commands.RequestModels
         public IFormFile? ExhibitionUrlFile { get; set; }
         public string? Description { get; set; }
         public string? DescriptionLocalization { get; set; }
+        public string? Location { get; set; }
+        public string? Year { get; set; }
     }
 }
