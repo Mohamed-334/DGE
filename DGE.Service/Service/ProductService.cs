@@ -30,6 +30,7 @@ namespace DGE.Service.Service
         {
             var Queryable = _productRepository.GetTableNoTracking()
                             .Include(p => p.ProductCategory)
+                            .Include(p => p.ProductImages)
                             .WhereIf(!string.IsNullOrEmpty(search), p => (p.Name != null && p.Name.Contains(search!)) || (p.NameLocalization != null && p.NameLocalization.Contains(search!)))
                             .WhereIf(productCategoryId.HasValue, p => p.ProductCategoryId == productCategoryId)
                             .AsQueryable();

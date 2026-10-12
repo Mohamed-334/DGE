@@ -11,6 +11,7 @@ namespace DGE.Presentation.Controllers
     [Authorize]
     public class ProductController : BaseControllerApp
     {
+        [AllowAnonymous]
         [HttpGet(Router.ProductRouting.GetById)]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
@@ -32,6 +33,7 @@ namespace DGE.Presentation.Controllers
             var response = await _mediator.Send(new GetProductsDropDownQueryRequestModel());
             return Result(response);
         }
+        [AllowAnonymous]
         [HttpPost(Router.ProductRouting.GetPaginatedList)]
         public async Task<IActionResult> GetPaginatedList([FromBody] GetProductsPaginatedListQueryRequestModel request)
         {
