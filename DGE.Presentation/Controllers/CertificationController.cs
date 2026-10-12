@@ -32,6 +32,7 @@ namespace DGE.Presentation.Controllers
             var response = await _mediator.Send(new GetCertificationsDropDownQueryRequestModel());
             return Result(response);
         }
+        [AllowAnonymous]
         [HttpPost(Router.CertificationRouting.GetPaginatedList)]
         public async Task<IActionResult> GetPaginatedList([FromBody] GetCertificationsPaginatedListQueryRequestModel request)
         {

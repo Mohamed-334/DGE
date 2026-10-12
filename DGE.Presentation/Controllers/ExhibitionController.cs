@@ -32,6 +32,7 @@ namespace DGE.Presentation.Controllers
             var response = await _mediator.Send(new GetExhibitionsDropDownQueryRequestModel());
             return Result(response);
         }
+        [AllowAnonymous]
         [HttpPost(Router.ExhibitionRouting.GetPaginatedList)]
         public async Task<IActionResult> GetPaginatedList([FromBody] GetExhibitionsPaginatedListQueryRequestModel request)
         {
