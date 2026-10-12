@@ -15,7 +15,7 @@ namespace DGE.Infrastructure.Seeder
                 {
                     UserName = "Conquer",
                     NormalizedUserName = "CONQUER",
-                    Email = "mohamedaboelez334@.com",
+                    Email = "mohamedaboelez334@gmail.com",
                     NormalizedEmail = "MOHAMEDABOELEZ334@GMAIL.COM",
                     Name = "Mohamed Ibrahim Hassan",
                     NameLocalization = "محمد ابراهيم حسن",

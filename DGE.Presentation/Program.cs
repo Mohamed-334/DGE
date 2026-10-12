@@ -157,7 +157,7 @@ namespace DGE.Presentation
             builder.Services.AddSingleton(jwtSettings);
             var tokenEncryptionKey = TokenEncryptor.ParseKey(jwtSettings.EncryptionKey);
 
-            builder.Services.AddAuthentication(options =>
+            var authenticationBuilder = builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -195,61 +195,70 @@ namespace DGE.Presentation
                         return Task.CompletedTask;
                     }
                 };
-            })
-            .AddGoogle(options =>
+            });
+
+            // External logins are registered only when configured; an empty ClientId fails options validation on every request
+            if (!string.IsNullOrEmpty(builder.Configuration["Authentication:Google:ClientId"]))
             {
-                options.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? string.Empty;
-                options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? string.Empty;
-                options.CallbackPath = "/api/Authentication/GoogleAuthenticationCallBack";
-                options.SaveTokens = true;
-            })
-           .AddOAuth("LinkedIn", options =>
-           {
-               var linkedInConfig = builder.Configuration.GetSection("Authentication:LinkedIn");
+                authenticationBuilder.AddGoogle(options =>
+                {
+                    options.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? string.Empty;
+                    options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? string.Empty;
+                    options.CallbackPath = "/api/Authentication/GoogleAuthenticationCallBack";
+                    options.SaveTokens = true;
+                });
+            }
 
-               options.ClientId = linkedInConfig["ClientId"] ?? string.Empty;
-               options.ClientSecret = linkedInConfig["ClientSecret"] ?? string.Empty;
-               options.CallbackPath = "/api/Authentication/LinkedInAuthenticationCallBack";
+            if (!string.IsNullOrEmpty(builder.Configuration["Authentication:LinkedIn:ClientId"]))
+            {
+                authenticationBuilder.AddOAuth("LinkedIn", options =>
+                {
+                    var linkedInConfig = builder.Configuration.GetSection("Authentication:LinkedIn");
 
-               options.AuthorizationEndpoint = "https://www.linkedin.com/oauth/v2/authorization";
-               options.TokenEndpoint = "https://www.linkedin.com/oauth/v2/accessToken";
-               options.UserInformationEndpoint = "https://api.linkedin.com/v2/userinfo";
+                    options.ClientId = linkedInConfig["ClientId"] ?? string.Empty;
+                    options.ClientSecret = linkedInConfig["ClientSecret"] ?? string.Empty;
+                    options.CallbackPath = "/api/Authentication/LinkedInAuthenticationCallBack";
 
-               options.Scope.Add("openid");
-               options.Scope.Add("profile");
-               options.Scope.Add("email");
+                    options.AuthorizationEndpoint = "https://www.linkedin.com/oauth/v2/authorization";
+                    options.TokenEndpoint = "https://www.linkedin.com/oauth/v2/accessToken";
+                    options.UserInformationEndpoint = "https://api.linkedin.com/v2/userinfo";
 
-               options.SaveTokens = true;
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
+                    options.Scope.Add("email");
 
-               options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "sub");
-               options.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
-               options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-               options.ClaimActions.MapJsonKey("urn:linkedin:picture", "picture");
-               options.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
-               options.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
+                    options.SaveTokens = true;
 
-               options.Events = new OAuthEvents
-               {
-                   OnCreatingTicket = async context =>
-                   {
-                       var request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
-                       request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", context.AccessToken);
-                       request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "sub");
+                    options.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+                    options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                    options.ClaimActions.MapJsonKey("urn:linkedin:picture", "picture");
+                    options.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
+                    options.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
 
-                       var response = await context.Backchannel.SendAsync(request, context.HttpContext.RequestAborted);
-                       response.EnsureSuccessStatusCode();
+                    options.Events = new OAuthEvents
+                    {
+                        OnCreatingTicket = async context =>
+                        {
+                            var request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
+                            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", context.AccessToken);
+                            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                       var user = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
-                       context.RunClaimActions(user.RootElement);
-                   },
-                   OnRemoteFailure = context =>
-                   {
-                       context.Response.Redirect("/api/auth/linkedin-error?error=" + context.Failure.Message);
-                       context.HandleResponse();
-                       return Task.CompletedTask;
-                   }
-               };
-           });
+                            var response = await context.Backchannel.SendAsync(request, context.HttpContext.RequestAborted);
+                            response.EnsureSuccessStatusCode();
+
+                            var user = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+                            context.RunClaimActions(user.RootElement);
+                        },
+                        OnRemoteFailure = context =>
+                        {
+                            context.Response.Redirect("/api/auth/linkedin-error?error=" + context.Failure.Message);
+                            context.HandleResponse();
+                            return Task.CompletedTask;
+                        }
+                    };
+                });
+            }
 
 
             #endregion
