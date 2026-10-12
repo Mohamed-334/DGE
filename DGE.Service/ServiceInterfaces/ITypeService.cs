@@ -8,5 +8,6 @@ namespace DGE.Service.ServiceInterfaces
     public interface ITypeService : IBaseService<Type>
     {
         Task<PaginatedList<Type>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null);
+        Task<List<Type>> GetByNamesAsync(IEnumerable<string> names);
     }
 }

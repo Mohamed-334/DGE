@@ -36,6 +36,15 @@ namespace DGE.Service.Service
                 .ToPaginatedListAsync(pageNumber, pageSize);
             return PaginatedList;
         }
+
+        public async Task<List<PackingType>> GetByNamesAsync(IEnumerable<string> names)
+        {
+            // Lower-cased on both sides so the match ignores case whatever the database collation is
+            var nameList = names.Select(n => n.ToLower()).ToList();
+            return await _packingTypeRepository.GetTableNoTracking()
+                            .Where(x => x.Name != null && nameList.Contains(x.Name.ToLower()))
+                            .ToListAsync();
+        }
         #endregion
     }
 }

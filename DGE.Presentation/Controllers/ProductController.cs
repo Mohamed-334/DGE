@@ -39,7 +39,7 @@ namespace DGE.Presentation.Controllers
             return Result(response);
         }
         [HttpPost(Router.ProductRouting.Create)]
-        public async Task<IActionResult> Create([FromBody] AddProductCommandRequestModel request)
+        public async Task<IActionResult> Create([FromForm] AddProductCommandRequestModel request)
         {
             var response = await _mediator.Send(request);
             return Result(response);
