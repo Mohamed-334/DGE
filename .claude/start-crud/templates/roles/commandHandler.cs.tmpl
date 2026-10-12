@@ -1,0 +1,149 @@
+{{SystemUsings}}
+using AutoMapper;
+using {{Ns_addRequest}};
+using {{Ns_updateRequest}};
+using {{Ns_deleteRequest}};
+using {{Ns_softDeleteRequest}};
+{{#HasStatus}}
+using {{Ns_updateStatusRequest}};
+{{StatusUsings}}
+{{/HasStatus}}
+using {{NsOf_ResponseHandler}};
+using {{NsOf_Response}};
+using {{NsOf_Entities}};
+using {{NsOf_AppLocalization}};
+using {{NsOf_AppLocalizationKeys}};
+using {{Ns_serviceInterface}};
+using {{NsOf_IAuthenticatedUserService}};
+{{#HasFiles}}
+using {{NsOf_IFileService}};
+using static DGE.Domain.Enums.EnumExtensions;
+{{/HasFiles}}
+using MediatR;
+using Microsoft.Extensions.Localization;
+{{EntityAliasUsing}}
+
+namespace {{Ns_commandHandler}}
+{
+    public class {{Cls_commandHandler}} : ResponseHandler, IRequestHandler<{{Cls_addRequest}}, Response<string>>,
+                                                         IRequestHandler<{{Cls_updateRequest}}, Response<string>>,
+                                                         IRequestHandler<{{Cls_deleteRequest}}, Response<string>>,
+{{#HasStatus}}
+                                                         IRequestHandler<{{Cls_softDeleteRequest}}, Response<string>>,
+                                                         IRequestHandler<{{Cls_updateStatusRequest}}, Response<string>>
+{{/HasStatus}}
+{{^HasStatus}}
+                                                         IRequestHandler<{{Cls_softDeleteRequest}}, Response<string>>
+{{/HasStatus}}
+    {
+        #region Fields
+        private readonly IStringLocalizer<AppLocalization> _stringLocalizer;
+        private readonly IMapper _mapper;
+        private readonly {{Cls_serviceInterface}} _{{entity}}Service;
+        private readonly IAuthenticatedUserService _authenticatedUserService;
+{{#HasFiles}}
+        private readonly IFileService _fileService;
+{{/HasFiles}}
+        #endregion
+
+        #region Constructor
+        public {{Cls_commandHandler}}(IStringLocalizer<AppLocalization> stringLocalizer,
+                                  IMapper mapper,
+                                  {{Cls_serviceInterface}} {{entity}}Service,
+{{#HasFiles}}
+                                  IAuthenticatedUserService authenticatedUserService,
+                                  IFileService fileService) : base(stringLocalizer)
+{{/HasFiles}}
+{{^HasFiles}}
+                                  IAuthenticatedUserService authenticatedUserService) : base(stringLocalizer)
+{{/HasFiles}}
+        {
+            _stringLocalizer = stringLocalizer;
+            _mapper = mapper;
+            _{{entity}}Service = {{entity}}Service;
+            _authenticatedUserService = authenticatedUserService;
+{{#HasFiles}}
+            _fileService = fileService;
+{{/HasFiles}}
+        }
+        #endregion
+
+        #region Methods
+        public async Task<Response<string>> Handle({{Cls_addRequest}} request, CancellationToken cancellationToken)
+        {
+            var {{Entity}} = _mapper.Map<{{EntityRef}}>(request);
+{{AddFileUpload}}
+            var result = await _{{entity}}Service.{{Svc_Add}}({{Entity}});
+            if (result == _stringLocalizer[AppLocalizationKeys.AddFailed])
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.AddFailed]);
+            return Success("", Meta: new { Id = {{Entity}}.Id });
+        }
+
+        public async Task<Response<string>> Handle({{Cls_updateRequest}} request, CancellationToken cancellationToken)
+        {
+            var {{Entity}} = await _{{entity}}Service.{{Svc_GetById}}(request.Id);
+            if ({{Entity}} == null)
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.NotFound]);
+
+            var {{Entity}}Mapper = _mapper.Map(request, {{Entity}});
+{{UpdateFileUpload}}
+            var result = await _{{entity}}Service.{{Svc_Edit}}({{Entity}}Mapper);
+            if (result == _stringLocalizer[AppLocalizationKeys.UpdateFailed])
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.UpdateFailed]);
+            return Success<string>({{MsgArg}}_stringLocalizer[AppLocalizationKeys.Updated]);
+        }
+
+        public async Task<Response<string>> Handle({{Cls_deleteRequest}} request, CancellationToken cancellationToken)
+        {
+            var {{Entity}} = await _{{entity}}Service.{{Svc_GetById}}(request.Id);
+            if ({{Entity}} == null)
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.NotFound]);
+            var result = await _{{entity}}Service.{{Svc_HardDelete}}({{Entity}});
+            if (result == _stringLocalizer[AppLocalizationKeys.DeletedFailed])
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.DeletedFailed]);
+            return Deleted<string>(_stringLocalizer[AppLocalizationKeys.Deleted]);
+        }
+
+        public async Task<Response<string>> Handle({{Cls_softDeleteRequest}} request, CancellationToken cancellationToken)
+        {
+            var {{Entity}} = await _{{entity}}Service.{{Svc_GetById}}(request.Id);
+            if ({{Entity}} == null)
+                return NotFound<string>(_stringLocalizer[AppLocalizationKeys.NotFound]);
+            {{Entity}}.IsDeleted = !({{Entity}}.IsDeleted);
+            {{Entity}}.DeletionDate = DateTime.UtcNow;
+            {{Entity}}.DeleterName = _authenticatedUserService.{{UserNameMethod}}();
+            var result = await _{{entity}}Service.{{Svc_Edit}}({{Entity}});
+
+            if (result == _stringLocalizer[AppLocalizationKeys.DeletedFailed])
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.DeletedFailed]);
+            if ({{Entity}}.IsDeleted)
+                return Deleted<string>(_stringLocalizer[AppLocalizationKeys.Deleted]);
+            return Success<string>({{MsgArg}}_stringLocalizer[AppLocalizationKeys.Activated]);
+        }
+{{#HasStatus}}
+
+        public async Task<Response<string>> Handle({{Cls_updateStatusRequest}} request, CancellationToken cancellationToken)
+        {
+            var {{entityVar}} = await _{{entity}}Service.{{Svc_GetById}}(request.{{Entity}}Id);
+            if ({{entityVar}} == null)
+                return NotFound<string>(_stringLocalizer[AppLocalizationKeys.NotFound]);
+
+            if ({{entityVar}}.{{StatusCodeProp}} == request.{{NewCodeProp}})
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.{{SameStatusKey}}]);
+
+            {{entityVar}}.{{StatusCodeProp}} = request.{{NewCodeProp}};
+            {{entityVar}}.{{StatusProp}} = (({{StatusEnum}})request.{{NewCodeProp}}).SplitEnumName();
+            {{entityVar}}.{{StatusProp}}Localization = (({{StatusEnum}})request.{{NewCodeProp}}).GetDisplayName();
+            {{entityVar}}.ModificationDate = DateTime.UtcNow;
+            {{entityVar}}.ModifierName = _authenticatedUserService.{{UserNameMethod}}() ?? "System";
+
+            var result = await _{{entity}}Service.{{Svc_Edit}}({{entityVar}});
+            if (result == _stringLocalizer[AppLocalizationKeys.UpdateFailed])
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.UpdateFailed]);
+
+            return Success<string>({{MsgArg}}_stringLocalizer[AppLocalizationKeys.Success]);
+        }
+{{/HasStatus}}
+        #endregion
+    }
+}
