@@ -26,12 +26,14 @@ namespace DGE.Presentation.Controllers
             var response = await _mediator.Send(new GetProductCategoriesListQueryRequestModel());
             return Result(response);
         }
+        [AllowAnonymous]
         [HttpGet(Router.ProductCategoryRouting.GetDropDownList)]
         public async Task<IActionResult> GetDropDownList()
         {
             var response = await _mediator.Send(new GetProductCategoriesDropDownQueryRequestModel());
             return Result(response);
         }
+        [AllowAnonymous]
         [HttpPost(Router.ProductCategoryRouting.GetPaginatedList)]
         public async Task<IActionResult> GetPaginatedList([FromBody] GetProductCategoriesPaginatedListQueryRequestModel request)
         {
