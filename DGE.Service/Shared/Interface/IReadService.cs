@@ -9,5 +9,6 @@ namespace DGE.Service.Shared.Interface
         Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default);
         Task<TEntity?> GetByIdNoTrackingAsync(int id, CancellationToken cancellationToken = default, params Expression<Func<TEntity, object>>[] includes);
         Task<PaginatedList<TEntity>> GetPaginatedListAsync(int pageNumber = 1, int pageSize = 10, CancellationToken cancellationToken = default);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default);
     }
 }

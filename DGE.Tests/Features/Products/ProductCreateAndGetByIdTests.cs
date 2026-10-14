@@ -177,6 +177,162 @@ namespace DGE.Tests.Features.Products
         }
 
         [Fact]
+        public async Task GetById_ReturnsLinkIdsNextToItemIds()
+        {
+            var seed = await SeedAsync();
+            int productId;
+            using (var context = CreateContext())
+            {
+                var response = await CreateHandler(context).Handle(new AddProductCommandRequestModel
+                {
+                    Name = "Mango",
+                    ProductCategoryId = seed.CategoryId,
+                    VarietyNames = ["Keitt"],
+                    VitaminIds = [seed.VitaminId],
+                    HarvestMonthCodes = [3]
+                }, CancellationToken.None);
+                productId = (int)response.Meta!.GetType().GetProperty("Id")!.GetValue(response.Meta)!;
+            }
+
+            using (var context = CreateContext())
+            {
+                var linkVitaminId = await context.Set<ProductVitamin>().Select(v => v.Id).SingleAsync();
+                var varietyId = await context.Set<ProductVariety>().Select(v => v.Id).SingleAsync();
+                var harvestMonthId = await context.Set<ProductHarvestMonth>().Select(h => h.Id).SingleAsync();
+
+                var dto = (await new ProductHandlerQuery(ProductService(context), _localizer, _mapper)
+                    .Handle(new GetProductByIdQueryRequestModel { Id = productId }, CancellationToken.None)).Data!;
+
+                Assert.Equal(seed.VitaminId, dto.Vitamins![0].Id);
+                Assert.Equal(linkVitaminId, dto.Vitamins![0].LinkId);
+                Assert.Equal(varietyId, dto.Varieties![0].LinkId);
+                Assert.Equal(harvestMonthId, dto.HarvestMonths![0].Id);
+            }
+        }
+
+        [Fact]
+        public async Task Create_GeneratesUniqueSlugs_AndKeepsAProvidedOne()
+        {
+            var seed = await SeedAsync();
+            using var context = CreateContext();
+            var handler = CreateHandler(context);
+
+            await handler.Handle(new AddProductCommandRequestModel { Name = "Fresh Mango", ProductCategoryId = seed.CategoryId }, CancellationToken.None);
+            await handler.Handle(new AddProductCommandRequestModel { Name = "fresh  mango!", ProductCategoryId = seed.CategoryId }, CancellationToken.None);
+            await handler.Handle(new AddProductCommandRequestModel { Name = "مانجو", ProductCategoryId = seed.CategoryId }, CancellationToken.None);
+            await handler.Handle(new AddProductCommandRequestModel { Name = "Guava", Slug = "my-guava", ProductCategoryId = seed.CategoryId }, CancellationToken.None);
+
+            Assert.Equal(["fresh-mango", "fresh-mango-2", "product", "my-guava"],
+                await context.Set<Product>().OrderBy(p => p.Id).Select(p => p.Slug).ToListAsync());
+        }
+
+        [Fact]
+        public async Task Update_WithoutSlugOrHomeFields_KeepsThem()
+        {
+            var seed = await SeedAsync();
+            int productId;
+            using (var context = CreateContext())
+            {
+                var response = await CreateHandler(context).Handle(new AddProductCommandRequestModel
+                {
+                    Name = "Mango", ProductCategoryId = seed.CategoryId, ShowOnHome = true, DisplayOrder = 4, Slug = "mango"
+                }, CancellationToken.None);
+                productId = (int)response.Meta!.GetType().GetProperty("Id")!.GetValue(response.Meta)!;
+            }
+
+            using (var context = CreateContext())
+            {
+                var response = await CreateHandler(context).Handle(new UpdateProductCommandRequestModel
+                {
+                    Id = productId, Name = "Mango Keitt", ProductCategoryId = seed.CategoryId
+                }, CancellationToken.None);
+                Assert.True(response.Succeeded);
+            }
+
+            using (var context = CreateContext())
+            {
+                var product = await context.Set<Product>().SingleAsync();
+                Assert.Equal("Mango Keitt", product.Name);
+                Assert.Equal("mango", product.Slug);
+                Assert.True(product.ShowOnHome);
+                Assert.Equal(4, product.DisplayOrder);
+            }
+        }
+
+        [Fact]
+        public async Task ToggleShowOnHome_FlipsTheFlag_AndPaginatedListFiltersAndOrdersByDisplayOrder()
+        {
+            var seed = await SeedAsync();
+            using (var context = CreateContext())
+            {
+                context.AddRange(
+                    new Product { Name = "A", ProductCategoryId = seed.CategoryId, DisplayOrder = 3 },
+                    new Product { Name = "B", ProductCategoryId = seed.CategoryId, DisplayOrder = 1 },
+                    new Product { Name = "C", ProductCategoryId = seed.CategoryId, DisplayOrder = 2 });
+                await context.SaveChangesAsync();
+            }
+
+            using (var context = CreateContext())
+            {
+                var handler = CreateHandler(context);
+                var ids = await context.Set<Product>().Where(p => p.Name != "C").Select(p => p.Id).ToListAsync();
+                foreach (var id in ids)
+                    Assert.True((await handler.Handle(new ToggleShowOnHomeProductCommandRequestModel { Id = id }, CancellationToken.None)).Succeeded);
+
+                var notFound = await handler.Handle(new ToggleShowOnHomeProductCommandRequestModel { Id = 999 }, CancellationToken.None);
+                Assert.Equal(HttpStatusCode.NotFound, notFound.StatusCode);
+            }
+
+            using (var context = CreateContext())
+            {
+                var query = new ProductHandlerQuery(ProductService(context), _localizer, _mapper);
+                var onHome = await query.Handle(new GetProductsPaginatedListQueryRequestModel { ShowOnHome = true }, CancellationToken.None);
+                var all = await query.Handle(new GetProductsPaginatedListQueryRequestModel(), CancellationToken.None);
+
+                Assert.Equal(["B", "A"], onHome.Data!.Data.Select(p => p.Name));
+                Assert.Equal(["B", "C", "A"], all.Data!.Data.Select(p => p.Name));
+            }
+        }
+
+        [Fact]
+        public async Task GetBySlug_ReturnsTheProduct_OrNotFound()
+        {
+            var seed = await SeedAsync();
+            using (var context = CreateContext())
+                await CreateHandler(context).Handle(new AddProductCommandRequestModel { Name = "Mango", ProductCategoryId = seed.CategoryId }, CancellationToken.None);
+
+            using (var context = CreateContext())
+            {
+                var query = new ProductHandlerQuery(ProductService(context), _localizer, _mapper);
+                var found = await query.Handle(new GetProductBySlugQueryRequestModel { Slug = "mango" }, CancellationToken.None);
+                var missing = await query.Handle(new GetProductBySlugQueryRequestModel { Slug = "nope" }, CancellationToken.None);
+
+                Assert.Equal("Mango", found.Data!.Name);
+                Assert.Equal(HttpStatusCode.NotFound, missing.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async Task Validators_RejectInvalidOrTakenSlugs()
+        {
+            var seed = await SeedAsync();
+            using var context = CreateContext();
+            context.Add(new Product { Name = "Mango", Slug = "mango", ProductCategoryId = seed.CategoryId });
+            await context.SaveChangesAsync();
+            var mangoId = await context.Set<Product>().Select(p => p.Id).SingleAsync();
+
+            var addValidator = CreateValidator(context);
+            var updateValidator = new UpdateProductCommandValidator(_localizer, ProductService(context));
+
+            Assert.Contains((await addValidator.ValidateAsync(new AddProductCommandRequestModel { Name = "X", ProductCategoryId = seed.CategoryId, Slug = "mango" })).Errors, e => e.PropertyName == "Slug");
+            Assert.Contains((await addValidator.ValidateAsync(new AddProductCommandRequestModel { Name = "X", ProductCategoryId = seed.CategoryId, Slug = "Bad Slug" })).Errors, e => e.PropertyName == "Slug");
+            Assert.True((await addValidator.ValidateAsync(new AddProductCommandRequestModel { Name = "X", ProductCategoryId = seed.CategoryId, Slug = "new-one-2" })).IsValid);
+            // Re-sending its own slug on update is fine; taking it for another product is not
+            Assert.True((await updateValidator.ValidateAsync(new UpdateProductCommandRequestModel { Id = mangoId, Name = "Mango", ProductCategoryId = seed.CategoryId, Slug = "mango" })).IsValid);
+            Assert.False((await updateValidator.ValidateAsync(new UpdateProductCommandRequestModel { Id = mangoId + 1, Name = "Y", ProductCategoryId = seed.CategoryId, Slug = "mango" })).IsValid);
+        }
+
+        [Fact]
         public void Mapping_WithoutLoadedCollections_LeavesListsNull()
         {
             var dto = _mapper.Map<ProductFullDataDto>(new Product { Id = 1, Name = "Mango", ProductCategoryId = 1 });

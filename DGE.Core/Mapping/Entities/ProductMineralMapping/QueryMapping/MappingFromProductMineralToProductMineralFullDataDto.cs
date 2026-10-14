@@ -12,6 +12,7 @@ namespace DGE.Core.Mapping.ProductMineralMapping
             CreateMap<ProductMineral, ProductMineralFullDataDto>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product != null ? src.Product.Name : null))
                 .ForMember(dest => dest.MineralName, opt => opt.MapFrom(src => src.Mineral != null ? src.Mineral.Name : null))
+                .ForMember(dest => dest.MineralNameLocalization, opt => opt.MapFrom(src => src.Mineral != null ? src.Mineral.NameLocalization : null))
                 .AfterMap<MetaMappingDataBasedOnSource<ProductMineral, ProductMineralFullDataDto>>();
         }
         #endregion

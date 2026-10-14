@@ -20,6 +20,7 @@ namespace DGE.Presentation.Shared.RateLimiting
         public const string OAuth = "oauth-limit";
         public const string EmailSend = "email-send-limit";
         public const string NotificationSend = "notification-send-limit";
+        public const string ContactUs = "contact-us-limit";
     }
 
     public static class RateLimitingExtensions
@@ -39,6 +40,7 @@ namespace DGE.Presentation.Shared.RateLimiting
                 options.AddPolicy(RateLimitPolicies.OAuth, context => FixedWindow(IpKey(context), 20));
                 options.AddPolicy(RateLimitPolicies.EmailSend, context => FixedWindow($"{UserKey(context)}|{IpKey(context)}", 10));
                 options.AddPolicy(RateLimitPolicies.NotificationSend, context => FixedWindow(UserKey(context), 20));
+                options.AddPolicy(RateLimitPolicies.ContactUs, context => FixedWindow(IpKey(context), 5));
 
                 options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
                 options.OnRejected = async (context, cancellationToken) =>

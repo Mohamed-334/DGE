@@ -73,5 +73,8 @@
         public const string TooManyRequests = "TooManyRequests";
         public const string InvalidCsrfToken = "InvalidCsrfToken";
         public const string UnexpectedError = "UnexpectedError";
+        public const string InvalidSlug = "InvalidSlug";
+        public const string InvalidCaptcha = "InvalidCaptcha";
+        public const string InvalidUrl = "InvalidUrl";
     }
 }

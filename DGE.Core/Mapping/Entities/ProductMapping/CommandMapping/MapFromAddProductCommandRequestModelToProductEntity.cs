@@ -11,6 +11,8 @@ namespace DGE.Core.Mapping.ProductMapping
         {
             CreateMap<AddProductCommandRequestModel, Product>()
                 .ForMember(dest => dest.ProductCategory, opt => opt.Ignore())
+                // The handler sets the slug (generated from the name when none is sent)
+                .ForMember(dest => dest.Slug, opt => opt.Ignore())
             .AfterMap<MetaMappingDataBasedOnDestination<AddProductCommandRequestModel, Product>>();
         }
         #endregion

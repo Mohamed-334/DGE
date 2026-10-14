@@ -6,6 +6,6 @@ namespace DGE.Service.ServiceInterfaces
 {
     public interface IContactUsService : IBaseService<ContactUs>
     {
-        Task<PaginatedList<ContactUs>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null);
+        Task<PaginatedList<ContactUs>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null, bool? isRead = null);
     }
 }

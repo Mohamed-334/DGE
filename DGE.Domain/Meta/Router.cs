@@ -106,6 +106,8 @@
             public const string Prefix = Root + "Product/";
 
             public const string GetById = Prefix + "GetById/{id}";
+            public const string GetBySlug = Prefix + "GetBySlug/{slug}";
+            public const string ToggleShowOnHome = Prefix + "ToggleShowOnHome/{id}";
             public const string GetList = Prefix + "GetList";
             public const string GetPaginatedList = Prefix + "GetPaginatedList";
             public const string GetDropDownList = Prefix + "GetDropDownList";
@@ -299,6 +301,60 @@
         public static class ContactUsRouting
         {
             public const string Prefix = Root + "ContactUs/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string MarkAsRead = Prefix + "MarkAsRead/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class BannerRouting
+        {
+            public const string Prefix = Root + "Banner/";
+
+            public const string GetById = Prefix + "GetById/{id}";
+            public const string GetList = Prefix + "GetList";
+            public const string GetPaginatedList = Prefix + "GetPaginatedList";
+            public const string GetDropDownList = Prefix + "GetDropDownList";
+            public const string Create = Prefix + "Create";
+            public const string Update = Prefix + "Update";
+            public const string HardDelete = Prefix + "HardDelete/{id}";
+            public const string SoftDeleteAndActivate = Prefix + "SoftDeleteAndActivate/{id}";
+        }
+        public static class SiteSectionRouting
+        {
+            public const string Prefix = Root + "SiteSection/";
+
+            public const string GetByKey = Prefix + "GetByKey/{key}";
+            public const string Update = Prefix + "Update";
+        }
+        public static class MetaTagRouting
+        {
+            public const string Prefix = Root + "MetaTag/";
+
+            public const string GetByPage = Prefix + "GetByPage/{page}";
+            public const string Update = Prefix + "Update";
+        }
+        public static class CompanySettingsRouting
+        {
+            public const string Prefix = Root + "CompanySettings/";
+
+            public const string Get = Prefix + "Get";
+            public const string Update = Prefix + "Update";
+        }
+        public static class DashboardRouting
+        {
+            public const string Prefix = Root + "Dashboard/";
+
+            public const string Stats = Prefix + "Stats";
+        }
+        public static class SocialMediaRouting
+        {
+            public const string Prefix = Root + "SocialMedia/";
 
             public const string GetById = Prefix + "GetById/{id}";
             public const string GetList = Prefix + "GetList";

@@ -36,6 +36,11 @@ namespace DGE.Infrastructure
             Services.AddScoped(typeof(ICertificationRepository), typeof(CertificationRepository));
             Services.AddScoped(typeof(IExhibitionRepository), typeof(ExhibitionRepository));
             Services.AddScoped(typeof(IContactUsRepository), typeof(ContactUsRepository));
+            Services.AddScoped(typeof(IBannerRepository), typeof(BannerRepository));
+            Services.AddScoped(typeof(ISocialMediaRepository), typeof(SocialMediaRepository));
+            Services.AddScoped(typeof(ISiteSectionRepository), typeof(SiteSectionRepository));
+            Services.AddScoped(typeof(IMetaTagRepository), typeof(MetaTagRepository));
+            Services.AddScoped(typeof(ICompanySettingsRepository), typeof(CompanySettingsRepository));
             Services.AddScoped<LoggerSaveChangesInterceptor>();
             return Services;
         }

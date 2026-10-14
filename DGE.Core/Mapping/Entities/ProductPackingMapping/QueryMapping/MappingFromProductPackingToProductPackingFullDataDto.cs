@@ -12,6 +12,7 @@ namespace DGE.Core.Mapping.ProductPackingMapping
             CreateMap<ProductPacking, ProductPackingFullDataDto>()
                 .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product != null ? src.Product.Name : null))
                 .ForMember(dest => dest.PackingTypeName, opt => opt.MapFrom(src => src.PackingType != null ? src.PackingType.Name : null))
+                .ForMember(dest => dest.PackingTypeNameLocalization, opt => opt.MapFrom(src => src.PackingType != null ? src.PackingType.NameLocalization : null))
                 .AfterMap<MetaMappingDataBasedOnSource<ProductPacking, ProductPackingFullDataDto>>();
         }
         #endregion

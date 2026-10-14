@@ -7,5 +7,6 @@ namespace DGE.Core.Features.ProductTypes.Dto
         public string? ProductName { get; set; }
         public int TypeId { get; set; }
         public string? TypeName { get; set; }
+        public string? TypeNameLocalization { get; set; }
     }
 }

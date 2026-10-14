@@ -143,6 +143,13 @@ namespace DGE.Service.Shared.BaseService
 
             return await queryable.ToPaginatedListAsync(pageNumber, pageSize, cancellationToken);
         }
+        public async virtual Task<int> CountAsync(Expression<Func<TEntity, bool>>? predicate = null, CancellationToken cancellationToken = default)
+        {
+            var queryable = _baseRepository.GetTableNoTracking();
+            return predicate == null
+                ? await queryable.CountAsync(cancellationToken)
+                : await queryable.CountAsync(predicate, cancellationToken);
+        }
         public async Task<IDbContextTransaction> BeginTransactionAsync()
         {
             return _baseRepository.BeginTransaction();

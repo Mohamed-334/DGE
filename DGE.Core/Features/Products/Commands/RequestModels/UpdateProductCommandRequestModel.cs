@@ -8,5 +8,9 @@ namespace DGE.Core.Features.Products.Commands.RequestModels
         public string? Description { get; set; }
         public string? DescriptionLocalization { get; set; }
         public int ProductCategoryId { get; set; }
+        // Left unchanged when not sent
+        public bool? ShowOnHome { get; set; }
+        public int? DisplayOrder { get; set; }
+        public string? Slug { get; set; }
     }
 }

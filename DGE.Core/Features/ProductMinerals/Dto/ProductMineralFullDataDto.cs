@@ -7,5 +7,6 @@ namespace DGE.Core.Features.ProductMinerals.Dto
         public string? ProductName { get; set; }
         public int MineralId { get; set; }
         public string? MineralName { get; set; }
+        public string? MineralNameLocalization { get; set; }
     }
 }

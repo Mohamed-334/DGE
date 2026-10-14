@@ -26,13 +26,16 @@ namespace DGE.Service.Service
         #endregion
 
         #region Methods
-        public async Task<PaginatedList<Product>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null, int? productCategoryId = null)
+        public async Task<PaginatedList<Product>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null, int? productCategoryId = null, bool? showOnHome = null)
         {
             var Queryable = _productRepository.GetTableNoTracking()
                             .Include(p => p.ProductCategory)
                             .Include(p => p.ProductImages)
                             .WhereIf(!string.IsNullOrEmpty(search), p => (p.Name != null && p.Name.Contains(search!)) || (p.NameLocalization != null && p.NameLocalization.Contains(search!)))
                             .WhereIf(productCategoryId.HasValue, p => p.ProductCategoryId == productCategoryId)
+                            .WhereIf(showOnHome.HasValue, p => p.ShowOnHome == showOnHome)
+                            .OrderBy(p => p.DisplayOrder)
+                            .ThenBy(p => p.Id)
                             .AsQueryable();
 
             var PaginatedList = await Queryable
@@ -42,7 +45,48 @@ namespace DGE.Service.Service
 
         public async Task<Product?> GetByIdWithIncludesAsync(int id)
         {
+            return await WithAllDetails().FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<Product?> GetBySlugWithIncludesAsync(string slug)
+        {
+            return await WithAllDetails().FirstOrDefaultAsync(x => x.Slug == slug);
+        }
+
+        public async Task<List<Product>> GetAllWithIncludesAsync()
+        {
             return await _productRepository.GetTableNoTracking()
+                            .Include(p => p.ProductCategory)
+                            .OrderBy(p => p.DisplayOrder)
+                            .ThenBy(p => p.Id)
+                            .ToListAsync();
+        }
+
+        public async Task<bool> IsSlugExistAsync(string slug, int? excludeProductId = null)
+        {
+            return await _productRepository.GetTableNoTracking()
+                            .AnyAsync(p => p.Slug == slug && (!excludeProductId.HasValue || p.Id != excludeProductId));
+        }
+
+        // Builds a slug from the name and appends -2, -3, ... until it is free; falls back to "product" for names without latin characters
+        public async Task<string> GenerateUniqueSlugAsync(string? name, int? excludeProductId = null)
+        {
+            var baseSlug = SlugGenerator.Generate(name);
+            if (string.IsNullOrEmpty(baseSlug))
+                baseSlug = "product";
+
+            var slug = baseSlug;
+            for (var suffix = 2; await IsSlugExistAsync(slug, excludeProductId); suffix++)
+            {
+                var suffixText = $"-{suffix}";
+                slug = baseSlug[..Math.Min(baseSlug.Length, SlugGenerator.MaxLength - suffixText.Length)].TrimEnd('-') + suffixText;
+            }
+            return slug;
+        }
+
+        private IQueryable<Product> WithAllDetails()
+        {
+            return _productRepository.GetTableNoTracking()
                             .Include(p => p.ProductCategory)
                             .Include(p => p.ProductImages)
                             .Include(p => p.ProductVarieties)
@@ -51,15 +95,7 @@ namespace DGE.Service.Service
                             .Include(p => p.ProductVitamins!).ThenInclude(pv => pv.Vitamin)
                             .Include(p => p.ProductMinerals!).ThenInclude(pm => pm.Mineral)
                             .Include(p => p.ProductHarvestMonths)
-                            .AsSplitQuery()
-                            .FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-        public async Task<List<Product>> GetAllWithIncludesAsync()
-        {
-            return await _productRepository.GetTableNoTracking()
-                            .Include(p => p.ProductCategory)
-                            .ToListAsync();
+                            .AsSplitQuery();
         }
         #endregion
     }

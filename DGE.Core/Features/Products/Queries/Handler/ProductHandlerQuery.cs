@@ -14,6 +14,7 @@ namespace DGE.Core.Features.Products.Queries.Handler
     public class ProductHandlerQuery : ResponseHandler,
                                     IRequestHandler<GetProductsListQueryRequestModel, Response<List<ProductFullDataDto>>>,
                                     IRequestHandler<GetProductByIdQueryRequestModel, Response<ProductFullDataDto>>,
+                                    IRequestHandler<GetProductBySlugQueryRequestModel, Response<ProductFullDataDto>>,
                                     IRequestHandler<GetProductsPaginatedListQueryRequestModel, Response<PaginatedList<ProductFullDataDto>>>,
                                     IRequestHandler<GetProductsDropDownQueryRequestModel, Response<List<DropDown>>>
     {
@@ -51,9 +52,18 @@ namespace DGE.Core.Features.Products.Queries.Handler
             return Success(ProductDto, _stringLocalizer[AppLocalizationKeys.Success]);
         }
 
+        public async Task<Response<ProductFullDataDto>> Handle(GetProductBySlugQueryRequestModel request, CancellationToken cancellationToken)
+        {
+            var Product = string.IsNullOrWhiteSpace(request.Slug) ? null : await _productService.GetBySlugWithIncludesAsync(request.Slug.Trim());
+            if (Product == null)
+                return NotFound<ProductFullDataDto>(_stringLocalizer[AppLocalizationKeys.NotFound]);
+            var ProductDto = _productMapping.Map<ProductFullDataDto>(Product);
+            return Success(ProductDto, _stringLocalizer[AppLocalizationKeys.Success]);
+        }
+
         public async Task<Response<PaginatedList<ProductFullDataDto>>> Handle(GetProductsPaginatedListQueryRequestModel request, CancellationToken cancellationToken)
         {
-            var PaginatedList = await _productService.GetPaginatedListWithFilterAsync(request.PageNumber, request.PageSize, request.Search, request.ProductCategoryId);
+            var PaginatedList = await _productService.GetPaginatedListWithFilterAsync(request.PageNumber, request.PageSize, request.Search, request.ProductCategoryId, request.ShowOnHome);
             if (PaginatedList == null)
                 return NotFound<PaginatedList<ProductFullDataDto>>(_stringLocalizer[AppLocalizationKeys.NotFound]);
             var ProductFullDataDtoList = _productMapping.Map<List<ProductFullDataDto>>(PaginatedList.Data).ToList();

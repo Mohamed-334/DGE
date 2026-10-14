@@ -40,6 +40,12 @@ namespace DGE.Service
             services.AddScoped<ICertificationService, CertificationService>();
             services.AddScoped<IExhibitionService, ExhibitionService>();
             services.AddScoped<IContactUsService, ContactUsService>();
+            services.AddScoped<IBannerService, BannerService>();
+            services.AddScoped<ISocialMediaService, SocialMediaService>();
+            services.AddScoped<ISiteSectionService, SiteSectionService>();
+            services.AddScoped<IMetaTagService, MetaTagService>();
+            services.AddScoped<ICompanySettingsService, CompanySettingsService>();
+            services.AddHttpClient<ICaptchaService, CaptchaService>(client => client.Timeout = TimeSpan.FromSeconds(10));
             return services;
         }
     }

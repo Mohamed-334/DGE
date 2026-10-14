@@ -9,5 +9,7 @@ namespace DGE.Core.Features.ContactUsMessages.Commands.RequestModels
         public string? Email { get; set; }
         public string? Subject { get; set; }
         public string? Message { get; set; }
+        // Token returned by the CAPTCHA widget on the contact form
+        public string? CaptchaToken { get; set; }
     }
 }

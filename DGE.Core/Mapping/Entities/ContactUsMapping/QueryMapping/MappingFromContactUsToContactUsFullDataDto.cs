@@ -10,6 +10,7 @@ namespace DGE.Core.Mapping.ContactUsMapping
         public void MappingFromContactUsToContactUsFullDataDto()
         {
             CreateMap<ContactUs, ContactUsFullDataDto>()
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreationDate))
                 .AfterMap<MetaMappingDataBasedOnSource<ContactUs, ContactUsFullDataDto>>();
         }
         #endregion

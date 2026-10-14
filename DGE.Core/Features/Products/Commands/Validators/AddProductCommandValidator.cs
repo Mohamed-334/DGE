@@ -1,6 +1,7 @@
 using DGE.Core.Features.Products.Commands.RequestModels;
 using DGE.Infrastructure.Shared.Localization;
 using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.ExtensionMethods;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 using static DGE.Domain.Enums.EnumExtensions;
@@ -49,6 +50,11 @@ namespace DGE.Core.Features.Products.Commands.Validators
             RuleFor(x => x.MineralIds)
                 .MustAsync(async (ids, cancellationToken) => ids == null || ids.Count == 0 || await _mineralService.AllExistAsync(ids))
                 .WithMessage(_stringLocalizer[AppLocalizationKeys.IsNotExist]);
+            RuleFor(x => x.Slug)
+                .Must(SlugGenerator.IsValid).WithMessage(_stringLocalizer[AppLocalizationKeys.InvalidSlug])
+                .MustAsync(async (slug, cancellationToken) => !await _productService.IsSlugExistAsync(slug!))
+                .WithMessage(_stringLocalizer[AppLocalizationKeys.IsExist])
+                .When(x => !string.IsNullOrWhiteSpace(x.Slug));
         }
         #endregion
     }

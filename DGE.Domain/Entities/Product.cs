@@ -7,6 +7,9 @@ namespace DGE.Domain.Entities
     {
         public string? Description { get; set; }
         public string? DescriptionLocalization { get; set; }
+        public bool ShowOnHome { get; set; }
+        public int DisplayOrder { get; set; }
+        public string? Slug { get; set; }
 
         [ForeignKey("ProductCategory")]
         public int ProductCategoryId { get; set; }

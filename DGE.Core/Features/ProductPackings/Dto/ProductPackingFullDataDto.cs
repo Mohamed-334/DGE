@@ -7,5 +7,6 @@ namespace DGE.Core.Features.ProductPackings.Dto
         public string? ProductName { get; set; }
         public int? PackingTypeId { get; set; }
         public string? PackingTypeName { get; set; }
+        public string? PackingTypeNameLocalization { get; set; }
     }
 }

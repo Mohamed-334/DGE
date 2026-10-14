@@ -13,6 +13,11 @@ namespace DGE.Infrastructure.Context.Config
                    .HasForeignKey(p => p.ProductCategoryId)
                    .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Property(p => p.Slug).HasMaxLength(200);
+            builder.HasIndex(p => p.Slug)
+                   .IsUnique()
+                   .HasFilter("[Slug] IS NOT NULL");
+
             builder.ToTable("Products");
         }
     }

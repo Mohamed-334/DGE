@@ -2,8 +2,10 @@ using DGE.Core.Features.ContactUsMessages.Commands.RequestModels;
 using DGE.Core.Features.ContactUsMessages.Queries.RequestModels;
 using DGE.Domain.Meta;
 using DGE.Presentation.Shared.BaseController;
+using DGE.Presentation.Shared.RateLimiting;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace DGE.Presentation.Controllers
 {
@@ -39,6 +41,7 @@ namespace DGE.Presentation.Controllers
             return Result(response);
         }
         [AllowAnonymous]
+        [EnableRateLimiting(RateLimitPolicies.ContactUs)]
         [HttpPost(Router.ContactUsRouting.Create)]
         public async Task<IActionResult> Create([FromBody] AddContactUsCommandRequestModel request)
         {
@@ -49,6 +52,15 @@ namespace DGE.Presentation.Controllers
         public async Task<IActionResult> Update([FromBody] UpdateContactUsCommandRequestModel request)
         {
             var response = await _mediator.Send(request);
+            return Result(response);
+        }
+        [HttpPut(Router.ContactUsRouting.MarkAsRead)]
+        public async Task<IActionResult> MarkAsRead([FromRoute] int id)
+        {
+            var response = await _mediator.Send(new MarkAsReadContactUsCommandRequestModel
+            {
+                Id = id
+            });
             return Result(response);
         }
         [HttpDelete(Router.ContactUsRouting.HardDelete)]

@@ -21,20 +21,25 @@ namespace DGE.Core.Mapping.ProductMapping
                 .AfterMap<MetaMappingDataBasedOnSource<Product, ProductFullDataDto>>();
 
             CreateMap<ProductImage, ProductImageItemDto>();
-            CreateMap<ProductVariety, ProductLookupItemDto>();
+            CreateMap<ProductVariety, ProductLookupItemDto>()
+                .ForMember(dest => dest.LinkId, opt => opt.MapFrom(src => src.Id));
             CreateMap<ProductType, ProductLookupItemDto>()
+                .ForMember(dest => dest.LinkId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.TypeId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Type!.Name))
                 .ForMember(dest => dest.NameLocalization, opt => opt.MapFrom(src => src.Type!.NameLocalization));
             CreateMap<ProductPacking, ProductLookupItemDto>()
+                .ForMember(dest => dest.LinkId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.PackingTypeId ?? 0))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.PackingType!.Name))
                 .ForMember(dest => dest.NameLocalization, opt => opt.MapFrom(src => src.PackingType!.NameLocalization));
             CreateMap<ProductVitamin, ProductLookupItemDto>()
+                .ForMember(dest => dest.LinkId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.VitaminId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Vitamin!.Name))
                 .ForMember(dest => dest.NameLocalization, opt => opt.MapFrom(src => src.Vitamin!.NameLocalization));
             CreateMap<ProductMineral, ProductLookupItemDto>()
+                .ForMember(dest => dest.LinkId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.MineralId))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Mineral!.Name))
                 .ForMember(dest => dest.NameLocalization, opt => opt.MapFrom(src => src.Mineral!.NameLocalization));

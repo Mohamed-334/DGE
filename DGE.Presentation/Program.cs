@@ -1,5 +1,6 @@
 ﻿using DGE.Core;
 using DGE.Domain.Entities;
+using DGE.Domain.Shared.CaptchaModels;
 using DGE.Domain.Shared.EmailModels;
 using DGE.Domain.Shared.JwtModels;
 using DGE.Infrastructure;
@@ -319,6 +320,12 @@ namespace DGE.Presentation
             builder.Configuration.GetSection(nameof(emailSettings)).Bind(emailSettings);
             builder.Services.AddSingleton(emailSettings);
 
+            #endregion
+
+            #region Captcha Config
+            var captchaSettings = new CaptchaSettings();
+            builder.Configuration.GetSection("Captcha").Bind(captchaSettings);
+            builder.Services.AddSingleton(captchaSettings);
             #endregion
 
             #region SignalR Services

@@ -11,12 +11,14 @@ namespace DGE.Core.Features.Products.Queries.RequestModels
         public int PageSize { get; set; } = 10;
         public string? Search { get; set; }
         public int? ProductCategoryId { get; set; }
-        public GetProductsPaginatedListQueryRequestModel(int pageNumber, int pageSize, string? search, int? productCategoryId)
+        public bool? ShowOnHome { get; set; }
+        public GetProductsPaginatedListQueryRequestModel(int pageNumber, int pageSize, string? search, int? productCategoryId, bool? showOnHome = null)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
             Search = search;
             ProductCategoryId = productCategoryId;
+            ShowOnHome = showOnHome;
         }
         public GetProductsPaginatedListQueryRequestModel() { }
     }

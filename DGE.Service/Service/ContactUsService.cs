@@ -26,10 +26,14 @@ namespace DGE.Service.Service
         #endregion
 
         #region Methods
-        public async Task<PaginatedList<ContactUs>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null)
+        public async Task<PaginatedList<ContactUs>> GetPaginatedListWithFilterAsync(int pageNumber = 1, int pageSize = 10, string? search = null, bool? isRead = null)
         {
             var Queryable = _contactUsRepository.GetTableNoTracking()
-                            .WhereIf(!string.IsNullOrEmpty(search), c => (c.Name != null && c.Name.Contains(search!)))
+                            .WhereIf(!string.IsNullOrEmpty(search), c => (c.Name != null && c.Name.Contains(search!))
+                                                                      || (c.Email != null && c.Email.Contains(search!))
+                                                                      || (c.Subject != null && c.Subject.Contains(search!)))
+                            .WhereIf(isRead.HasValue, c => c.IsRead == isRead)
+                            .OrderByDescending(c => c.Id)
                             .AsQueryable();
 
             var PaginatedList = await Queryable

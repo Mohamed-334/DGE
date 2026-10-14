@@ -339,4 +339,13 @@
   <data name="UnexpectedError" xml:space="preserve">
     <value>حدث خطأ غير متوقع. من فضلك حاول مرة أخرى لاحقا</value>
   </data>
+  <data name="InvalidSlug" xml:space="preserve">
+    <value>الرابط المختصر يجب أن يحتوي على حروف إنجليزية صغيرة وأرقام وشرطات مفردة فقط (مثال: fresh-mango)</value>
+  </data>
+  <data name="InvalidCaptcha" xml:space="preserve">
+    <value>فشل التحقق من الكابتشا. من فضلك حاول مرة أخرى</value>
+  </data>
+  <data name="InvalidUrl" xml:space="preserve">
+    <value>رابط غير صالح. يجب أن يبدأ بـ http:// أو https://</value>
+  </data>
 </root>

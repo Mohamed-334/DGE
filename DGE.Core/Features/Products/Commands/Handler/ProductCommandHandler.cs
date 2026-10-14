@@ -15,7 +15,8 @@ namespace DGE.Core.Features.Products.Commands.Handler
     public class ProductCommandHandler : ResponseHandler, IRequestHandler<AddProductCommandRequestModel, Response<string>>,
                                                          IRequestHandler<UpdateProductCommandRequestModel, Response<string>>,
                                                          IRequestHandler<DeleteProductCommandRequestModel, Response<string>>,
-                                                         IRequestHandler<SoftDeleteAndActivateProductCommandRequestModel, Response<string>>
+                                                         IRequestHandler<SoftDeleteAndActivateProductCommandRequestModel, Response<string>>,
+                                                         IRequestHandler<ToggleShowOnHomeProductCommandRequestModel, Response<string>>
     {
         #region Fields
         private readonly IStringLocalizer<AppLocalization> _stringLocalizer;
@@ -51,6 +52,9 @@ namespace DGE.Core.Features.Products.Commands.Handler
         {
             var Product = _mapper.Map<Product>(request);
             var userName = _authenticatedUserService.GetAuthenticatedUserName();
+            Product.Slug = string.IsNullOrWhiteSpace(request.Slug)
+                ? await _productService.GenerateUniqueSlugAsync(request.Name)
+                : request.Slug.Trim();
 
             // Upload the images first; the product and all its related rows are then saved together in one SaveChanges
             Product.ProductImages = new List<ProductImage>();
@@ -112,6 +116,10 @@ namespace DGE.Core.Features.Products.Commands.Handler
                 return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.NotFound]);
 
             var ProductMapper = _mapper.Map(request, Product);
+            if (!string.IsNullOrWhiteSpace(request.Slug))
+                ProductMapper.Slug = request.Slug.Trim();
+            else if (string.IsNullOrEmpty(ProductMapper.Slug))
+                ProductMapper.Slug = await _productService.GenerateUniqueSlugAsync(ProductMapper.Name, ProductMapper.Id);
             var result = await _productService.EditAsync(ProductMapper);
             if (result == _stringLocalizer[AppLocalizationKeys.UpdateFailed])
                 return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.UpdateFailed]);
@@ -144,6 +152,21 @@ namespace DGE.Core.Features.Products.Commands.Handler
             if (Product.IsDeleted)
                 return Deleted<string>(_stringLocalizer[AppLocalizationKeys.Deleted]);
             return Success<string>(msg: _stringLocalizer[AppLocalizationKeys.Activated]);
+        }
+
+        public async Task<Response<string>> Handle(ToggleShowOnHomeProductCommandRequestModel request, CancellationToken cancellationToken)
+        {
+            var Product = await _productService.GetByIdAsync(request.Id);
+            if (Product == null)
+                return NotFound<string>(_stringLocalizer[AppLocalizationKeys.NotFound]);
+            Product.ShowOnHome = !Product.ShowOnHome;
+            Product.ModificationDate = DateTime.Now;
+            Product.ModifierName = _authenticatedUserService.GetAuthenticatedUserName();
+            var result = await _productService.EditAsync(Product);
+
+            if (result == _stringLocalizer[AppLocalizationKeys.UpdateFailed])
+                return BadRequest<string>(_stringLocalizer[AppLocalizationKeys.UpdateFailed]);
+            return Success("", _stringLocalizer[AppLocalizationKeys.Updated], new { Product.Id, Product.ShowOnHome });
         }
 
         private static List<string> CleanNames(List<string>? names)

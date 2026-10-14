@@ -21,6 +21,16 @@ namespace DGE.Presentation.Controllers
             });
             return Result(response);
         }
+        [AllowAnonymous]
+        [HttpGet(Router.ProductRouting.GetBySlug)]
+        public async Task<IActionResult> GetBySlug([FromRoute] string slug)
+        {
+            var response = await _mediator.Send(new GetProductBySlugQueryRequestModel()
+            {
+                Slug = slug
+            });
+            return Result(response);
+        }
         [HttpGet(Router.ProductRouting.GetList)]
         public async Task<IActionResult> GetList()
         {
@@ -50,6 +60,15 @@ namespace DGE.Presentation.Controllers
         public async Task<IActionResult> Update([FromBody] UpdateProductCommandRequestModel request)
         {
             var response = await _mediator.Send(request);
+            return Result(response);
+        }
+        [HttpPut(Router.ProductRouting.ToggleShowOnHome)]
+        public async Task<IActionResult> ToggleShowOnHome([FromRoute] int id)
+        {
+            var response = await _mediator.Send(new ToggleShowOnHomeProductCommandRequestModel
+            {
+                Id = id
+            });
             return Result(response);
         }
         [HttpDelete(Router.ProductRouting.HardDelete)]

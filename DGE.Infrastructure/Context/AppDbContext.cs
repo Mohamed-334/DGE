@@ -36,6 +36,12 @@ namespace DGE.Infrastructure.Context
         public DbSet<Certification> Certifications { get; set; }
         public DbSet<Exhibition> Exhibitions { get; set; }
         public DbSet<ContactUs> ContactUsMessages { get; set; }
+        public DbSet<Banner> Banners { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<SiteSection> SiteSections { get; set; }
+        public DbSet<SiteSectionItem> SiteSectionItems { get; set; }
+        public DbSet<MetaTag> MetaTags { get; set; }
+        public DbSet<CompanySettings> CompanySettings { get; set; }
         public DbSet<Logger> Logger { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

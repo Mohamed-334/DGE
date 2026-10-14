@@ -11,13 +11,15 @@ namespace DGE.Core.Features.ContactUsMessages.Commands.Validators
         #region Fields
         private readonly IStringLocalizer<AppLocalization> _stringLocalizer;
         private readonly IContactUsService _contactUsService;
+        private readonly ICaptchaService _captchaService;
         #endregion
 
         #region Constructor
-        public AddContactUsCommandValidator(IStringLocalizer<AppLocalization> stringLocalizer, IContactUsService contactUsService)
+        public AddContactUsCommandValidator(IStringLocalizer<AppLocalization> stringLocalizer, IContactUsService contactUsService, ICaptchaService captchaService)
         {
             _stringLocalizer = stringLocalizer;
             _contactUsService = contactUsService;
+            _captchaService = captchaService;
             ApplySignUpCommandValidation();
             ApplyCustomSignUpCommandValidation();
         }
@@ -40,6 +42,9 @@ namespace DGE.Core.Features.ContactUsMessages.Commands.Validators
         {
             RuleFor(x => x.Email)
                 .EmailAddress().WithMessage(_stringLocalizer[AppLocalizationKeys.InvalidEmail]);
+            RuleFor(x => x.CaptchaToken)
+                .MustAsync((token, cancellationToken) => _captchaService.VerifyAsync(token, cancellationToken))
+                .WithMessage(_stringLocalizer[AppLocalizationKeys.InvalidCaptcha]);
         }
         #endregion
     }

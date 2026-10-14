@@ -9,6 +9,9 @@ namespace DGE.Core.Features.Products.Dto
         public string? DescriptionLocalization { get; set; }
         public int ProductCategoryId { get; set; }
         public string? ProductCategoryName { get; set; }
+        public bool ShowOnHome { get; set; }
+        public int DisplayOrder { get; set; }
+        public string? Slug { get; set; }
         public List<ProductImageItemDto>? Images { get; set; }
         public List<ProductLookupItemDto>? Varieties { get; set; }
         public List<ProductLookupItemDto>? Types { get; set; }

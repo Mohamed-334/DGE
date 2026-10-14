@@ -7,5 +7,6 @@ namespace DGE.Core.Features.ProductVitamins.Dto
         public string? ProductName { get; set; }
         public int VitaminId { get; set; }
         public string? VitaminName { get; set; }
+        public string? VitaminNameLocalization { get; set; }
     }
 }

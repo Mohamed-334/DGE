@@ -53,7 +53,7 @@ namespace DGE.Core.Features.ContactUsMessages.Queries.Handler
 
         public async Task<Response<PaginatedList<ContactUsFullDataDto>>> Handle(GetContactUsMessagesPaginatedListQueryRequestModel request, CancellationToken cancellationToken)
         {
-            var PaginatedList = await _contactUsService.GetPaginatedListWithFilterAsync(request.PageNumber, request.PageSize, request.Search);
+            var PaginatedList = await _contactUsService.GetPaginatedListWithFilterAsync(request.PageNumber, request.PageSize, request.Search, request.IsRead);
             if (PaginatedList == null)
                 return NotFound<PaginatedList<ContactUsFullDataDto>>(_stringLocalizer[AppLocalizationKeys.NotFound]);
             var ContactUsFullDataDtoList = _contactUsMapping.Map<List<ContactUsFullDataDto>>(PaginatedList.Data).ToList();

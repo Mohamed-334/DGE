@@ -1,6 +1,7 @@
 using DGE.Core.Features.Products.Commands.RequestModels;
 using DGE.Infrastructure.Shared.Localization;
 using DGE.Service.ServiceInterfaces;
+using DGE.Service.Shared.ExtensionMethods;
 using FluentValidation;
 using Microsoft.Extensions.Localization;
 
@@ -38,6 +39,11 @@ namespace DGE.Core.Features.Products.Commands.Validators
         }
         public void ApplyCustomSignUpCommandValidation()
         {
+            RuleFor(x => x.Slug)
+                .Must(SlugGenerator.IsValid).WithMessage(_stringLocalizer[AppLocalizationKeys.InvalidSlug])
+                .MustAsync(async (model, slug, cancellationToken) => !await _productService.IsSlugExistAsync(slug!, model.Id))
+                .WithMessage(_stringLocalizer[AppLocalizationKeys.IsExist])
+                .When(x => !string.IsNullOrWhiteSpace(x.Slug));
         }
         #endregion
     }
